@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.invoice.pojo.Customer;
+import com.chainsys.invoice.model.Customer;
 import com.chainsys.invoice.service.CustomerService;
 
 @Controller
@@ -20,6 +20,11 @@ public class CustomerController {
 
 	@Autowired
 	CustomerService crService;
+	
+	@GetMapping("/findcustomerform")
+	public String findCustomerForm() {
+		return "find-customer-form";
+	}
 	
 	@GetMapping("/getcustomerbyid")
 	public String getCustomerById(@RequestParam("id")int id ,Model model) {

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.invoice.pojo.InvoiceDetails;
+import com.chainsys.invoice.model.InvoiceDetails;
 
 public interface InvoiceDetailsRepository extends CrudRepository<InvoiceDetails, String>{
 	Optional<InvoiceDetails> findById(String id);

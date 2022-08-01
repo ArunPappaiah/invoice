@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.invoice.dao.SellerRepository;
-import com.chainsys.invoice.pojo.Seller;
+import com.chainsys.invoice.model.Seller;
 
 @Service
 public class SellerService {

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.invoice.pojo.Product;
-import com.chainsys.invoice.pojo.Seller;
+import com.chainsys.invoice.model.Product;
+import com.chainsys.invoice.model.Seller;
 
 public interface ProductRepository extends CrudRepository<Product, Integer>{
 	Product findById(int id);

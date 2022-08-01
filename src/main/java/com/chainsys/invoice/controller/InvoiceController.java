@@ -1,5 +1,6 @@
 package com.chainsys.invoice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.invoice.pojo.Invoice;
+import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.service.InvoiceService;
 
 @Controller
@@ -67,5 +68,21 @@ public class InvoiceController {
 		List<Invoice> ivList = ivService.findAllInvoices();
 		model.addAttribute("allinvoices",ivList);
 		return "list-invoices";
-	}
+	} 
+	
+	/*@PostMapping("/getmaxinvoice")
+	public String getMaxInvoiceNum(Model model) {
+		Invoice iv = new Invoice();
+		List<Invoice> ivList = ivService.findAllInvoices();
+		if(ivList==null) {
+			iv.setInvoice_number("E-00000001");
+		}else {
+			    long id1 = Long.parseLong(iv.getInvoice_number().substring(2,iv.getInvoice_number().length()));
+			    id1++;
+			    iv.setInvoice_number("E-"+String.format("%07d",id1));
+			}
+			// return ivService.findMaxInvoiceNumber(id1);
+		model.addAttribute("getmaxinvoice",ivList);
+		return "list-max-invoices";
+	}  */
 }

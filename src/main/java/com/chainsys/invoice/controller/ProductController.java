@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.invoice.pojo.Product;
+import com.chainsys.invoice.model.Product;
 import com.chainsys.invoice.service.ProductService;
 
 @Controller
@@ -20,13 +20,6 @@ public class ProductController {
 	
 	@Autowired
 	ProductService prService;
-	
-	@GetMapping("/getproductbyid")
-	public String getProductById(@RequestParam("id") int id, Model model) {
-		Product pr = prService.findById(id);
-		model.addAttribute("getproduct",pr);
-		return "find-product-by-id";
-	}
 	
 	@GetMapping("/addform")
 	public String showAddForm(Model model) {
@@ -54,10 +47,27 @@ public class ProductController {
 		return "redirect:/product/getallproducts";
 	}
 	
-	@GetMapping("/deleteproduct")
-	public String deleteProduct(@RequestParam("id") int id) {
+	@RequestMapping("/deleteform")
+	public String deleteForm() {
+		return "delete-product";
+	}
+	
+	@RequestMapping("/deleteproduct")
+	public String deleteProduct(@RequestParam("product_id") int id) {
 		prService.deleteById(id);
 		return "redirect:/product/getallproducts";
+	}
+	
+	@GetMapping("/findproductform")
+	public String findProductForm() {
+		return "find-product";
+	}
+	
+	@GetMapping("/getproductbyid")
+	public String getProductById(@RequestParam("productId") int id,Model model) {
+		Product pr = prService.findById(id);
+		model.addAttribute("getproduct",pr);
+		return "find-product-by-id";
 	}
 	
 	@GetMapping("/getallproducts")

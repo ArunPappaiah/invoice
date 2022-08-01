@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.invoice.pojo.Seller;
+import com.chainsys.invoice.model.Seller;
 
 public interface SellerRepository extends CrudRepository<Seller, Integer> {
 	Seller findById(int id);

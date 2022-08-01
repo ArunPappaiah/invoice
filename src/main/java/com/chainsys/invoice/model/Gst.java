@@ -1,4 +1,4 @@
-package com.chainsys.invoice.pojo;
+package com.chainsys.invoice.model;
 
 import java.util.Scanner;
 

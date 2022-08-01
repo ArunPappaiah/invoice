@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.invoice.pojo.Invoice;
-import com.chainsys.invoice.pojo.InvoiceDetails;
+import com.chainsys.invoice.model.Invoice;
+import com.chainsys.invoice.model.InvoiceDetails;
 import com.chainsys.invoice.service.InvoiceDetailsService;
 
 @Controller

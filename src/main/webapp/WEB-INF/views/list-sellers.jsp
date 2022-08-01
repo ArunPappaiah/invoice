@@ -23,12 +23,12 @@
 	<tbody>
 		<c:forEach var="seller" items="${allsellers}">
 			<tr>
-			<td>${seller.company_id}</td>
-			<td>${seller.company_name}</td>
-			<td>${seller.email_Id}</td>
-			<td>${seller.gst_registration_no}</td>
-			<td>${seller.company_address}</td>
-			<td>${seller.contact_number}</td>
+			<td>${seller.companyId}</td>
+			<td>${seller.companyName}</td>
+			<td>${seller.emailId}</td>
+			<td>${seller.gstRegistrationNo}</td>
+			<td>${seller.companyAddress}</td>
+			<td>${seller.contactNumber}</td>
 			</tr>
 		</c:forEach>
 	</tbody>

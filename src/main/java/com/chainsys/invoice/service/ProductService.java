@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.invoice.dao.ProductRepository;
-import com.chainsys.invoice.pojo.Product;
+import com.chainsys.invoice.model.Product;
 
 @Service
 public class ProductService {

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.chainsys.invoice.dao.CustomerRepository;
-import com.chainsys.invoice.pojo.Customer;
+import com.chainsys.invoice.model.Customer;
 
 @Service
 public class CustomerService {
