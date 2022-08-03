@@ -12,23 +12,23 @@ import com.chainsys.invoice.model.Seller;
 public class SellerService {
 	
 	@Autowired
-	private SellerRepository srRepo;
+	private SellerRepository sellerRepo;
 	
 	public Seller findById(int id) {
-		return srRepo.findById(id);
+		return sellerRepo.findById(id);
 	}
 	
 	public Seller save(Seller sr) {
-		srRepo.save(sr);
-		return srRepo.save(sr);
+		sellerRepo.save(sr);
+		return sellerRepo.save(sr);
 	}
 	
 	public List<Seller> findAllSellers(){
-		List<Seller> srList = srRepo.findAll();
+		List<Seller> srList = sellerRepo.findAll();
 		return srList;
 	}
 	
 	public void deleteById(int id) {
-		srRepo.deleteById(id);
+		sellerRepo.deleteById(id);
 	}
 }

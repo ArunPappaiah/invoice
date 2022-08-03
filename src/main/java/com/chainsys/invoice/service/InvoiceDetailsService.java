@@ -13,23 +13,23 @@ import com.chainsys.invoice.model.InvoiceDetails;
 public class InvoiceDetailsService {
 
 	@Autowired
-	private InvoiceDetailsRepository inDetailsRepo;
+	private InvoiceDetailsRepository invoiceDetailsRepo;
 	
 	public Optional<InvoiceDetails> findById(String id) {
-		return inDetailsRepo.findById(id);
+		return invoiceDetailsRepo.findById(id);
 	}
 	
 	public InvoiceDetails save(InvoiceDetails inDetails) {
-		inDetailsRepo.save(inDetails);
-		return inDetailsRepo.save(inDetails);
+		invoiceDetailsRepo.save(inDetails);
+		return invoiceDetailsRepo.save(inDetails);
 	}
 	
 	public List<InvoiceDetails> findAllInvoicesDetails(){
-		List<InvoiceDetails> inDetailsList = inDetailsRepo.findAll();
+		List<InvoiceDetails> inDetailsList = invoiceDetailsRepo.findAll();
 		return inDetailsList;
 	}
 	
 	public void deleteById(String id) {
-		inDetailsRepo.deleteById(id);
+		invoiceDetailsRepo.deleteById(id);
 	}
 }

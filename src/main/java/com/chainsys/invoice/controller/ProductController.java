@@ -19,7 +19,7 @@ import com.chainsys.invoice.service.ProductService;
 public class ProductController {
 	
 	@Autowired
-	ProductService prService;
+	ProductService productService;
 	
 	@GetMapping("/addform")
 	public String showAddForm(Model model) {
@@ -30,20 +30,20 @@ public class ProductController {
 	
 	@PostMapping("/addproduct")
 	public String addProduct(@ModelAttribute("addproduct") Product pr) {
-		prService.save(pr);
+		productService.save(pr);
 		return "redirect:/product/getallproducts";
 	}
 	
 	@GetMapping("/updateform")
 	public String showUpdateForm(@RequestParam("id") int id,Model model) {
-		Product pr = prService.findById(id);
+		Product pr = productService.findById(id);
 		model.addAttribute("updateproduct",pr);
 		return "update-product-form";
 	}
 	
 	@PostMapping("/updateproduct")
 	public String modifyProduct(@ModelAttribute("updateproduct") Product pr) {
-		prService.save(pr);
+		productService.save(pr);
 		return "redirect:/product/getallproducts";
 	}
 	
@@ -54,7 +54,7 @@ public class ProductController {
 	
 	@RequestMapping("/deleteproduct")
 	public String deleteProduct(@RequestParam("product_id") int id) {
-		prService.deleteById(id);
+		productService.deleteById(id);
 		return "redirect:/product/getallproducts";
 	}
 	
@@ -65,14 +65,14 @@ public class ProductController {
 	
 	@GetMapping("/getproductbyid")
 	public String getProductById(@RequestParam("productId") int id,Model model) {
-		Product pr = prService.findById(id);
+		Product pr = productService.findById(id);
 		model.addAttribute("getproduct",pr);
-		return "find-product-by-id";
+		return "find-product-by-id"; // find-product-by-id
 	}
 	
 	@GetMapping("/getallproducts")
 	public String getAllProducts(Model model) {
-		List<Product> prList = prService.findAllProducts();
+		List<Product> prList = productService.findAllProducts();
 		model.addAttribute("allproducts",prList);
 		return "list-products";
 	}

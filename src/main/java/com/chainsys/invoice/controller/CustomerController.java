@@ -19,7 +19,7 @@ import com.chainsys.invoice.service.CustomerService;
 public class CustomerController {
 
 	@Autowired
-	CustomerService crService;
+	CustomerService customerService;
 	
 	@GetMapping("/findcustomerform")
 	public String findCustomerForm() {
@@ -28,9 +28,9 @@ public class CustomerController {
 	
 	@GetMapping("/getcustomerbyid")
 	public String getCustomerById(@RequestParam("id")int id ,Model model) {
-		Customer cr = crService.findById(id);
+		Customer cr = customerService.findById(id);
 		model.addAttribute("getcustomer",cr);
-		return "find-customer-by-id";
+		return "find-customer-by-id"; // find-customer-by-id
 	}
 	
 	@GetMapping("/addform")
@@ -42,32 +42,32 @@ public class CustomerController {
 	
 	@PostMapping("/addcustomer")
 	public String addCustomer(@ModelAttribute("addcustomer")Customer cr) {
-		crService.save(cr);
+		customerService.save(cr);
 		return "redirect:/customer/getallcustomers";
 	}
 	
 	@GetMapping("/updateform")
 	public String showUpdateForm(@RequestParam("id")int id,Model model) {
-		Customer cr = crService.findById(id);
+		Customer cr = customerService.findById(id);
 		model.addAttribute("updatecustomer",cr);
 		return "update-customer-form";
 	}
 	
 	@PostMapping("/updatecustomer")
 	public String modifyCustomer(@ModelAttribute("updatecustomer") Customer cr) {
-		crService.save(cr);
+		customerService.save(cr);
 		return "redirect:/customer/getallcustomers";
 	}
 	
 	@GetMapping("/deletecustomer")
 	public String deleteCustomer(@RequestParam("id")int id) {
-		crService.deleteById(id);
+		customerService.deleteById(id);
 		return "redirect:/customer/getallcustomers";
 	}
 	
 	@GetMapping("/getallcustomers")
 	public String getAllCustomers(Model model) {
-		List<Customer> crList = crService.findAllCustomers();
+		List<Customer> crList = customerService.findAllCustomers();
 		model.addAttribute("allcustomers",crList);
 		return "list-customers";
 	}

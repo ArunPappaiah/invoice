@@ -10,17 +10,17 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@Column(name="PRODUCT_ID")
-	int productId;
+	private int productId;
 	@Column(name="PRODUCT_NAME")
-	String productName;
+	private String productName;
 	@Column(name="CATEGORIES")
-	String categories;
+	private String categories;
 	@Column(name="PRICE")
-	float price;
+	private float price;
 	@Column(name="GST_RATE")
-	float gstRate;
+	private float gstRate;
 	@Column(name="DESCRIPTIONS")
-	String descriptions;
+	private String descriptions;
 	public int getProductId() {
 		return productId;
 	}

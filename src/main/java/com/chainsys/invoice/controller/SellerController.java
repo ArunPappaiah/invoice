@@ -20,11 +20,11 @@ import com.chainsys.invoice.service.SellerService;
 public class SellerController {
 
 	@Autowired
-	SellerService srService;
+	SellerService sellerService;
 
 	@GetMapping("/getsellerbyid")
 	public String getSellerById(@RequestParam("id") int id, Model model) {
-		Seller sr = srService.findById(id);
+		Seller sr = sellerService.findById(id);
 		model.addAttribute("getseller",sr);
 		return "find-seller-by-id";
 	}
@@ -38,32 +38,32 @@ public class SellerController {
 	
 	@PostMapping("/addseller")
 	public String addSeller(@ModelAttribute("addseller")Seller sr) {
-		srService.save(sr);
+		sellerService.save(sr);
 		return "redirect:/seller/getallsellers";
 	}
 	
 	@GetMapping("/updateform")
 	public String showUpdateForm(@RequestParam("id")int id,Model model) {
-		Seller sr = srService.findById(id);
+		Seller sr = sellerService.findById(id);
 		model.addAttribute("updateseller",sr);
 		return "update-seller-form";
 	}
 	
 	@PostMapping("/updateseller")
 	public String modifySeller(@ModelAttribute("updateseller") Seller sr) {
-		srService.save(sr);
+		sellerService.save(sr);
 		return "redirect:/seller/getallsellers";
 	}
 	
 	@GetMapping("/deleteseller")
 	public String deleteSeller(@RequestParam("id")int id) {
-		srService.deleteById(id);
+		sellerService.deleteById(id);
 		return "redirect:/seller/getallsellers";
 	}
 	
 	@GetMapping("/getallsellers")
 	public String getAllSellers(Model model) {
-		List<Seller> srList = srService.findAllSellers();
+		List<Seller> srList = sellerService.findAllSellers();
 		model.addAttribute("allsellers",srList);
 		return "list-sellers";
 	}

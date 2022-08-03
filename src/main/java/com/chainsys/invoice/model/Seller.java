@@ -10,17 +10,17 @@ import javax.persistence.Table;
 public class Seller {
 	@Id
 	@Column(name="COMPANY_ID")
-	int companyId;
+	private int companyId;
 	@Column(name="COMPANY_NAME")
-	String companyName;
+	private String companyName;
 	@Column(name="EMAIL_ID")
-	String emailId;
+	private String emailId;
 	@Column(name="GST_REGISTRATION_NO")
-	String gstRegistrationNo;
+	private String gstRegistrationNo;
 	@Column(name="COMPANY_ADDRESS")
-	String companyAddress;
+	private String companyAddress;
 	@Column(name="CONTACT_NUMBER")
-	long contactNumber;
+	private long contactNumber;
 	public int getCompanyId() {
 		return companyId;
 	}

@@ -11,23 +11,23 @@ import com.chainsys.invoice.model.Customer;
 public class CustomerService {
 
 	@Autowired
-	private CustomerRepository crRepo;
+	private CustomerRepository customerRepo;
 	
 	public Customer findById(int id) {
-		return crRepo.findById(id);
+		return customerRepo.findById(id);
 	}
 	
 	public Customer save(Customer cr) {
-		crRepo.save(cr);
-		return crRepo.save(cr);
+		customerRepo.save(cr);
+		return customerRepo.save(cr);
 	}
 	
 	public List<Customer> findAllCustomers(){
-		List<Customer> crList = crRepo.findAll();
+		List<Customer> crList = customerRepo.findAll();
 		return crList;
 	}
 	
 	public void deleteById(int id) {
-		crRepo.deleteById(id);
+		customerRepo.deleteById(id);
 	}
 }

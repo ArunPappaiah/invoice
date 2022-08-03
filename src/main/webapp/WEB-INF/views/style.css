@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+td > input {
+  float: right; 
+   width: 100px;
+}
+.alignleft {
+  text-align: left;
+}
+.aligncenter {
+  text-align: center;
+}
+.alignright {
+  text-align: right;
+}

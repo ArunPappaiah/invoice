@@ -10,17 +10,17 @@ import javax.persistence.Table;
 public class InvoiceDetails {
 	@Id
 	@Column(name="INVOICE_NUMBER")
-	String invoiceNumber;
+	private String invoiceNumber;
 	@Column(name="PRODUCT_ID")
-	int productId;
+	private int productId;
 	@Column(name="QUANTITY")
-	int quantity;
+	private int quantity;
 	@Column(name="PRICE")
-	float price;
+	private float price;
 	@Column(name="GST")
-	int gst;
+	private int gst;
 	@Column(name="AMOUNT")
-	float amount;
+	private float amount;
 	public String getInvoiceNumber() {
 		return invoiceNumber;
 	}

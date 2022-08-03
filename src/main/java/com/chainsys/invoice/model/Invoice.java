@@ -12,15 +12,15 @@ import javax.persistence.Table;
 public class Invoice {
 	@Id
 	@Column(name="INVOICE_NUMBER")
-	String invoiceNumber;
+	private String invoiceNumber;
 	@Column(name="INVOICE_DATE")
-	Date invoiceDate;
+	private Date invoiceDate;
 	@Column(name="CUSTOMER_ID")
-	int customerId;
+	private int customerId;
 	@Column(name="TRANSPORTATION_CHARGES")
-	float transportationCharges;
+	private float transportationCharges;
 	@Column(name="TOTAL_AMOUNT")
-	float totalAmount;
+	private float totalAmount;
 	public String getInvoiceNumber() {
 		return invoiceNumber;
 	}

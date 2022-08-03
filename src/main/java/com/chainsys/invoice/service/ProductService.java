@@ -12,23 +12,23 @@ import com.chainsys.invoice.model.Product;
 public class ProductService {
 	
 	@Autowired
-	private ProductRepository prRepo;
+	private ProductRepository productRepo;
 	
 	public Product findById(int id) {
-		return prRepo.findById(id);
+		return productRepo.findById(id);
 	}
 	
 	public Product save(Product pr) {
-		prRepo.save(pr);
-		return prRepo.save(pr);
+		productRepo.save(pr);
+		return productRepo.save(pr);
 	}
 	
 	public List<Product> findAllProducts(){
-		List<Product> prList = prRepo.findAll();
+		List<Product> prList = productRepo.findAll();
 		return prList;
 	}
 	
 	public void deleteById(int id) {
-		prRepo.deleteById(id);
+		productRepo.deleteById(id);
 	}
 }

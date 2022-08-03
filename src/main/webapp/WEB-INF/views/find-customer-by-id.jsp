@@ -49,9 +49,6 @@
 						<form:input path="city" readonly="true"/>
 					</div>
 				</div>
-		<div>
-			<form:button>Find Customer By Id</form:button>
-		</div>
 		</form:form>
 	</div>
 	</div>

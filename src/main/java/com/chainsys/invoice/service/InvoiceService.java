@@ -6,16 +6,21 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.chainsys.invoice.dao.InvoiceDetailsRepository;
 import com.chainsys.invoice.dao.InvoiceRepository;
 import com.chainsys.invoice.model.Invoice;
+import com.chainsys.invoice.model.InvoiceDetails;
+import com.chainsys.invoice.model.InvoiceDetailsDTO;
 
 @Service
 public class InvoiceService {
 	
 	@Autowired
 	private InvoiceRepository invoiceRepo;
-	
+	@Autowired
+	private InvoiceDetailsRepository invoiceDetailsRepo;
 	public Optional<Invoice> findById(String id) {
 		return invoiceRepo.findById(id);
 	}
@@ -33,7 +38,16 @@ public class InvoiceService {
 	public void deleteById(String id) {
 		invoiceRepo.deleteById(id);
 	}
-	
+	@Transactional
+	public void addInvoiceAndInvoiceDetails(InvoiceDetailsDTO dto) {
+		Invoice invoice = dto.getInvoice();
+		save(invoice);
+		List<InvoiceDetails> invoiceDetailsList = dto.getInvoiceDetails();
+		int count = invoiceDetailsList.size();
+		for(int i=0;i<count;i++) {
+			invoiceDetailsRepo.save(invoiceDetailsList.get(i));
+		}
+	}
 	
 	/*
 	 * public List<Invoice> findMaxInvoiceNumber(){ List<Invoice> maxInvoice =

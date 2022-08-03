@@ -21,11 +21,11 @@ import com.chainsys.invoice.service.InvoiceDetailsService;
 public class InvoiceDetailsController {
 	
 	@Autowired
-	InvoiceDetailsService ivDetService;
+	InvoiceDetailsService invoiceDetailService;
 	
 	@GetMapping("getinvoicedetailsbyid")
 	public String getInvoiceDetailsById(@RequestParam("id")String id,Model model) {
-		Optional<InvoiceDetails> iv = ivDetService.findById(id);
+		Optional<InvoiceDetails> iv = invoiceDetailService.findById(id);
 		model.addAttribute("getinvoicedetails",iv);
 		return "find-invoicedetails-by-id";
 	}
@@ -39,32 +39,32 @@ public class InvoiceDetailsController {
 	
 	@PostMapping("/addinvoicedetails")
 	public String addInvoiceDetails(@ModelAttribute("addinvoicedetails")InvoiceDetails ivDetails) {
-		ivDetService.save(ivDetails);
+		invoiceDetailService.save(ivDetails);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	
 	@GetMapping("/updateform")
 	public String showUpdateForm(@RequestParam("id")String id,Model model) {
-		Optional<InvoiceDetails> ivDetails = ivDetService.findById(id);
+		Optional<InvoiceDetails> ivDetails = invoiceDetailService.findById(id);
 		model.addAttribute("updateinvoicedetails",ivDetails);
 		return "update-invoicedetails-form";
 	}
 	
 	@PostMapping("/updateinvoicedetails")
 	public String modifyInvoiceDetails(@ModelAttribute("updateinvoicedetails") InvoiceDetails ivDetails) {
-		ivDetService.save(ivDetails);
+		invoiceDetailService.save(ivDetails);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	
 	@GetMapping("/deleteinvoicedetails")
 	public String deleteInvoiceDetails(@RequestParam("id")String id) {
-		ivDetService.deleteById(id);
+		invoiceDetailService.deleteById(id);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	
 	@GetMapping("/getallinvoicedetails")
 	public String getAllInvoiceDetails(Model model) {
-		List<InvoiceDetails> ivDetailsList = ivDetService.findAllInvoicesDetails();
+		List<InvoiceDetails> ivDetailsList = invoiceDetailService.findAllInvoicesDetails();
 		model.addAttribute(ivDetailsList);
 		return "list-invoicedetails";
 	}

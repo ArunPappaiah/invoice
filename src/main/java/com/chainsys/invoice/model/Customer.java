@@ -10,17 +10,17 @@ import javax.persistence.Table;
 public class Customer {
 	@Id
 	@Column(name="CUSTOMER_ID")
-	int customerId;
+	private int customerId;
 	@Column(name="CUSTOMER_NAME")
-	String customerName;
+	private String customerName;
 	@Column(name="PHONE_NUMBER")
-	long phoneNumber;
+	private long phoneNumber;
 	@Column(name="ADDRESS")
-	String address;
+	private String address;
 	@Column(name="EMAIL")
-	String email;
+	private String email;
 	@Column(name="CITY")
-	String city;
+	private String city;
 	/**
 	 * @return the customerId
 	 */

@@ -16,31 +16,36 @@ function calculateAmount(val)
 	var divobj = document.getElementById('tot_amount');
 	divobj.value = tot_price;
 }
-/*-------------------------------------*/
-/*function tcalc () {
-	  // (A) ITEM PRICE + TAX PERCENTAGE
-	  var price = document.getElementById("price").value,
-	      percent = document.getElementById("gst").value;
-	  price = parseFloat(price);
-	  percent = parseFloat(percent);
-	 
-	  // (B) CALCULATE TAX AMOUNT
-	  var tax = (price / 100) * percent,
-	      grand = price * ((100 + percent) / 100);
 
-	  // (C) ROUND OFF
-	  // CREDITS - https://www.jacklmoore.com/notes/rounding-in-javascript/
-	  var roundoff = function (amount, places) {
-	    let ea = "e" + places,
-	    eb = "e-" + places;
-	    return Number(Math.round(amount + ea) + eb);
-	  };
-	 
-	  // (D) SET CALCULATED VALUES TO HTML FIELDS
-	  document.getElementById("taxamt").value = tax;
-	  document.getElementById("taxgrand").value = grand;
-	  return false;
-}  */
+$(document).ready(function() {
+	  $('#gst').keyup(function(ev) {
+	    var gst = $("#gst").val();
+	    var price = $("#price").val();
+	    var qty = $("#qty").val();
+	    var reeta = price * qty;
+	    var tot_price = (reeta * gst / 100) + reeta;
+	    var divobj = document.getElementById('tot_amount');
+	    divobj.value = tot_price;
+	  });
+	});
+	
+function updatePrice() {
+    // Get the ex-GST price from its form element
+var qty = document.getElementById("quantity").value;
+var exPrice = document.getElementById("price").value;
+var gstPrice = document.getElementById("gst").value;
+
+//Get the GST price
+// gstPrice =  Number(exPrice) + Number(gstPrice);
+var TPrice = parseInt(gstPrice) + parseInt(qty)*parseInt(exPrice);
+
+//Set the GST price in its form element
+document.getElementById("quantity").value = qty;
+document.getElementById("gst").value = gstPrice;
+document.getElementById("amount").value = TPrice;
+
+}
+
 </script>
 </head>
 <body>
@@ -63,25 +68,25 @@ function calculateAmount(val)
 				<div>
 					<label for="quantity">Quantity</label>
 					<div>
-						<form:input path="quantity" />
+						<form:input path="quantity" id="quantity" name="quantity" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price"  onchange="calculateAmount(this.value)"/>
+						<form:input path="price" id="price" name="price" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
 					</div>
 				</div>
 				<div>
 					<label for="gst">GST</label>
 					<div>
-						<form:input path="gst" />
+						<form:input path="gst" type="text" id="gst" name="gst" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" type="text" id="tot_amount"  name=""/>
+						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/><!-- id="tot_amount" -->
 					</div>
 				</div>
 		<div>
