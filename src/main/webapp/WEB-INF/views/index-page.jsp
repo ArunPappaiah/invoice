@@ -24,6 +24,9 @@
 			<div>
 				<a href="product/deleteform">Delete Product</a>
 			</div>
+			<div>
+				<a href="product/getproductinvoiceform">Get Product And Invoice</a>
+			</div>
 	<h1>Customer</h1>
 			<div>
 				<a href="customer/addform">Add Customer</a>

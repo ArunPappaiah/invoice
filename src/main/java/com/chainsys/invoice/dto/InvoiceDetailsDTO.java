@@ -42,6 +42,14 @@ public class InvoiceDetailsDTO {
 	private String invoiceNumber;
 	private Date invoiceDate;
 	private int customerId;
+	private int productId1;
+	public int getProductId1() {
+		return productId1;
+	}
+	public void setProductId1(int productId1) {
+		this.productId1 = productId1;
+	}
+
 	private float transportationCharges;
 	private float totalAmount;
 	public String getInvoiceNumber() {

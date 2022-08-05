@@ -15,6 +15,7 @@
 		<th>Invoice Number</th>
 		<th>Invoice Date</th>
 		<th>Customer Id</th>
+		<th>Product Id</th>
 		<th>Transportation Charge</th>
 		<th>Total Amount</th>
 		</tr>
@@ -25,6 +26,7 @@
 			<td>${invoice.invoiceNumber}</td>
 			<td>${invoice.invoiceDate}</td>
 			<td>${invoice.customerId}</td>
+			<td>${invoice.productId}</td>
 			<td>${invoice.transportationCharges}</td>
 			<td>${invoice.totalAmount}</td>
 			</tr>

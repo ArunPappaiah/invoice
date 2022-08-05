@@ -22,6 +22,14 @@ public class Invoice {
 	private Date invoiceDate;
 	@Column(name="CUSTOMER_ID")
 	private int customerId;
+	@Column(name="PRODUCT_ID")
+	private int productId;
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 	@Column(name="TRANSPORTATION_CHARGES")
 	private float transportationCharges;
 	@Column(name="TOTAL_AMOUNT")
@@ -39,6 +47,17 @@ public class Invoice {
 	}
 	public void setInvoiceDetail(InvoiceDetails invoiceDetail) {
 		this.invoiceDetail = invoiceDetail;
+	}
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="PRODUCT_ID",nullable=false,insertable=false,updatable=false)
+	private Product invoice;
+	
+	public Product getInvoice() {
+		return invoice;
+	}
+	public void setInvoice(Product invoice) {
+		this.invoice = invoice;
 	}
 	//--------------------
 	public String getInvoiceNumber() {

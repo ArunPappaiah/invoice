@@ -32,7 +32,7 @@ public class CustomerController {
 	public String getCustomerById(@RequestParam("id")int id ,Model model) {
 		Customer cr = customerService.findById(id);
 		model.addAttribute("getcustomer",cr);
-		return "find-customer-by-id"; // find-customer-by-id
+		return "find-customer-by-id";
 	}
 	
 	@GetMapping("/addform")

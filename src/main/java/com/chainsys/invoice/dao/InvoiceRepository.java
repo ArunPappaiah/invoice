@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Invoice;
+import com.chainsys.invoice.model.InvoiceDetails;
 
 public interface InvoiceRepository extends CrudRepository<Invoice, String>{
 	
@@ -21,6 +22,8 @@ public interface InvoiceRepository extends CrudRepository<Invoice, String>{
     List<Invoice> findAll();
     
     List<Invoice> findByCustomerId(int id);
+    
+    Invoice findByProductId(int id);
 	/*
 	 * @Query("SELECT MAX(invoice_number)FROM Invoice") List<Invoice>
 	 * findMaxInvoiceNumber();

@@ -6,17 +6,59 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Get Invoice By Id</title>
+<title>List Product And Invoice</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="findallbyid" method="post"
-				modelAttribute="get">
+			<form:form action="getproductandinvoice" method="post"
+				modelAttribute="getproduct">
+				<div>
+					<label for="productId">Product Id</label>
+					<div>
+						<form:input path="productId" />
+					</div>
+				</div>
+				<div>
+					<label for="productName">Product Name</label>
+					<div>
+						<form:input path="productName" />
+					</div>
+				</div>
+				<div>
+				    <label for="categories"> Category</label>
+					 <div>
+						<form:input path="categories" />
+					</div>
+				</div>
+				<div>
+					<label for="price">Price</label>
+					<div>
+						<form:input path="price" />
+					</div>
+				</div>
+				<div>
+					<label for="gstRate">GST Rate</label>
+					<div>
+						<form:input path="gstRate" />
+					</div>
+				</div>
+				<div>
+					<label for="descriptions">Description</label>
+					<div>
+						<form:input path="descriptions" />
+					</div>
+				</div>
+		</form:form>
+	</div>
+	</div>
+	<div id="root">
+		<div id="form">
+			<form:form action="getproductandinvoice" method="get" modelAttribute="getinvoice">
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
-						<form:input type="text" path="invoiceNumber"/>
+						<form:input path="invoiceNumber"/>
 					</div>
 				</div>  
 				<div>
@@ -49,11 +91,8 @@
 						<form:input path="totalAmount" />
 					</div>
 				</div>
-		<div>
-			<form:button>Get Invoice By Id</form:button>
-		</div>
-		</form:form>
-	</div>
+				</form:form>
+				</div>
 	</div>
 </body>
 </html>

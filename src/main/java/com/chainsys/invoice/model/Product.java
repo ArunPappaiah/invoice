@@ -2,7 +2,9 @@ package com.chainsys.invoice.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,17 @@ public class Product {
 	private float gstRate;
 	@Column(name="DESCRIPTIONS")
 	private String descriptions;
+	
+	@OneToOne(mappedBy="invoice",fetch=FetchType.LAZY)
+	private Invoice invoice;
+	
+	public Invoice getInvoice() {
+		return invoice;
+	}
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
+	}
+	
 	public int getProductId() {
 		return productId;
 	}

@@ -98,6 +98,7 @@ public class InvoiceController {
 		dto.setInvoiceNumber(invoice.getInvoiceNumber());
 		dto.setInvoiceDate(invoice.getInvoiceDate());
 		dto.setCustomerId(invoice.getCustomerId());
+		dto.setProductId1(invoice.getProductId());
 		dto.setTransportationCharges(invoice.getTransportationCharges());
 		dto.setTotalAmount(invoice.getTotalAmount());
 		dto.setInvoice(invoice);

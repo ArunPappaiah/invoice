@@ -32,6 +32,12 @@
 					</div>
 				</div>
 				<div>
+					<label for="productId">Product Id</label>
+					<div>
+						<form:input path="productId" />
+					</div>
+				</div>
+				<div>
 					<label for="transportationCharges">Transportation Charge</label>
 					<div>
 						<form:input path="transportationCharges"/>
@@ -49,6 +55,5 @@
 		</form:form>
 	</div>
 	</div>
-	
 </body>
 </html>

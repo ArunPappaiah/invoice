@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.invoice.dto.ProductInvoiceDetailsDTO;
 import com.chainsys.invoice.model.Product;
 import com.chainsys.invoice.service.ProductService;
 
@@ -82,5 +83,16 @@ public class ProductController {
 		List<Product> prList = productService.findAllProducts();
 		model.addAttribute("allproducts",prList);
 		return "list-products";
+	}
+	@GetMapping("/getproductinvoiceform")
+	public String findProductInvoiceForm() {
+		return "find-product-and-invoice";
+	}
+	@GetMapping("/getproductandinvoice")
+	public String getProductAndInvoice(@RequestParam("id")int id,Model model) {
+		ProductInvoiceDetailsDTO dto = productService.getProductAndInvoice(id);
+		model.addAttribute("getproduct",dto.getProduct());
+		model.addAttribute("getinvoice",dto.getInvoice());
+		return "list-product-and-invoice";
 	}
 }
