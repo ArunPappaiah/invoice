@@ -3,7 +3,7 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.io.PrintWriter,java.sql.Connection,java.sql.DriverManager,java.sql.PreparedStatement,java.sql.ResultSet
-,java.sql.Statement" %>
+,java.sql.Statement,com.chainsys.invoice.model.Invoice" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +47,6 @@
    }
    String sl3 = String.valueOf(sl); */
  %>
-
 	<div id="root">
 		<div id="form">
 			<form:form action="addinvoice" method="post"
@@ -74,7 +73,7 @@
 				<div>
 					<label for="transportationCharges">Transportation Charge</label>
 					<div>
-						<form:input path="transportationCharges" />
+						<form:input path="transportationCharges"/>
 					</div>
 				</div>
 				<div>

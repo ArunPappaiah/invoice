@@ -23,6 +23,11 @@ public class InvoiceDetailsController {
 	@Autowired
 	InvoiceDetailsService invoiceDetailService;
 	
+	@GetMapping("/findinvoicedetailsform")
+	public String findInvoiceForm() {
+		return "find-invoice-details-form";
+	}
+	
 	@GetMapping("getinvoicedetailsbyid")
 	public String getInvoiceDetailsById(@RequestParam("id")String id,Model model) {
 		Optional<InvoiceDetails> iv = invoiceDetailService.findById(id);
@@ -43,11 +48,16 @@ public class InvoiceDetailsController {
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	
+	@GetMapping("/updatemainform")
+	public String findUpdateInvoiceForm() {
+		return "find-update-invoice-details";
+	}
+	
 	@GetMapping("/updateform")
 	public String showUpdateForm(@RequestParam("id")String id,Model model) {
 		Optional<InvoiceDetails> ivDetails = invoiceDetailService.findById(id);
 		model.addAttribute("updateinvoicedetails",ivDetails);
-		return "update-invoicedetails-form";
+		return "update-invoice-details-form";
 	}
 	
 	@PostMapping("/updateinvoicedetails")
@@ -65,7 +75,7 @@ public class InvoiceDetailsController {
 	@GetMapping("/getallinvoicedetails")
 	public String getAllInvoiceDetails(Model model) {
 		List<InvoiceDetails> ivDetailsList = invoiceDetailService.findAllInvoicesDetails();
-		model.addAttribute(ivDetailsList);
+		model.addAttribute("allinvoicedetails",ivDetailsList);
 		return "list-invoicedetails";
 	}
 }

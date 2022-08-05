@@ -1,10 +1,15 @@
 package com.chainsys.invoice.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,21 @@ public class Invoice {
 	private float transportationCharges;
 	@Column(name="TOTAL_AMOUNT")
 	private float totalAmount;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CUSTOMER_ID",nullable=false,insertable=false,updatable=false)
+	private Customer customerdetail;
+	
+	 @OneToOne(mappedBy="invoicedetail",fetch=FetchType.LAZY)
+	private InvoiceDetails invoiceDetail;  
+	
+	public InvoiceDetails getInvoiceDetail() {
+		return invoiceDetail;
+	}
+	public void setInvoiceDetail(InvoiceDetails invoiceDetail) {
+		this.invoiceDetail = invoiceDetail;
+	}
+	//--------------------
 	public String getInvoiceNumber() {
 		return invoiceNumber;
 	}

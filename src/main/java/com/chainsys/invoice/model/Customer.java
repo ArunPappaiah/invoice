@@ -1,8 +1,13 @@
 package com.chainsys.invoice.model;
 
+import java.time.LocalTime;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,16 @@ public class Customer {
 	private String email;
 	@Column(name="CITY")
 	private String city;
+	@OneToMany(mappedBy="customerdetail",fetch=FetchType.LAZY)
+	private List<Invoice> invoice;
+	
+	
+	public List<Invoice> getInvoice() {
+		return invoice;
+	}
+	public void setInvoice(List<Invoice> invoice) {
+		this.invoice = invoice;
+	}
 	/**
 	 * @return the customerId
 	 */

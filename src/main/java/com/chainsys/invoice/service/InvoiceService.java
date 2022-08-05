@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chainsys.invoice.dao.InvoiceDetailsRepository;
 import com.chainsys.invoice.dao.InvoiceRepository;
+import com.chainsys.invoice.dto.InvoiceAndInvoiceDetailsDTO;
+import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
-import com.chainsys.invoice.model.InvoiceDetailsDTO;
 
 @Service
 public class InvoiceService {
@@ -21,10 +22,15 @@ public class InvoiceService {
 	private InvoiceRepository invoiceRepo;
 	@Autowired
 	private InvoiceDetailsRepository invoiceDetailsRepo;
+	
 	public Optional<Invoice> findById(String id) {
 		return invoiceRepo.findById(id);
 	}
 	
+	public Optional<InvoiceDetails> findInvoiceDetailsById(String id){
+		return invoiceDetailsRepo.findById(id);
+	}
+
 	public Invoice save(Invoice invoice) {
 		invoiceRepo.save(invoice);
 		return invoiceRepo.save(invoice);
@@ -48,6 +54,20 @@ public class InvoiceService {
 			invoiceDetailsRepo.save(invoiceDetailsList.get(i));
 		}
 	}
+	
+	 public InvoiceAndInvoiceDetailsDTO getInvoiceAndInvoiceDetails(String id) {
+		Optional<Invoice> invoice = findById(id);
+		InvoiceAndInvoiceDetailsDTO dto = new InvoiceAndInvoiceDetailsDTO();
+		dto.setInvoice(invoice);
+		Optional<InvoiceDetails> invoiceDetails = invoiceDetailsRepo.findByInvoiceNumber(id);
+		dto.setInvoiceDetails(invoiceDetails);
+				
+		return dto;
+	} 
+	
+/*	public void selectId(String id) {
+		invoiceRepo.getNextInvoiceNumber(id);
+	}  */
 	
 	/*
 	 * public List<Invoice> findMaxInvoiceNumber(){ List<Invoice> maxInvoice =

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.invoice.dto.CustomerInvoiceDetailsDTO;
+import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Customer;
 import com.chainsys.invoice.service.CustomerService;
 
@@ -46,6 +48,11 @@ public class CustomerController {
 		return "redirect:/customer/getallcustomers";
 	}
 	
+	@GetMapping("/updatemainform")
+	public String findUpdateCustomerForm() {
+		return "find-update-customer";
+	}
+	
 	@GetMapping("/updateform")
 	public String showUpdateForm(@RequestParam("id")int id,Model model) {
 		Customer cr = customerService.findById(id);
@@ -59,6 +66,11 @@ public class CustomerController {
 		return "redirect:/customer/getallcustomers";
 	}
 	
+	@RequestMapping("/deleteform")
+	public String deleteForm() {
+		return "delete-customer";
+	}
+	
 	@GetMapping("/deletecustomer")
 	public String deleteCustomer(@RequestParam("id")int id) {
 		customerService.deleteById(id);
@@ -70,5 +82,26 @@ public class CustomerController {
 		List<Customer> crList = customerService.findAllCustomers();
 		model.addAttribute("allcustomers",crList);
 		return "list-customers";
+	}
+	
+	@GetMapping("/getcustomerinvoiceform")
+	public String findCustomerInvoicesForm() {
+		return "find-customer-invoices";
+	}
+	
+/*	@GetMapping("/getcustomerinvoices")
+	public String getCustomerInvoices(@RequestParam("id")int id,Model model) {
+		InvoiceDetailsDTO dto = customerService.getCustomerAndInvoices(id);
+		model.addAttribute("getcustomerinvoices",dto.getCustomer());
+		model.addAttribute("invoicelist",dto.getInvoices());
+		return "list-customer-invoices";
+	}  */
+	
+	@GetMapping("/getcustomerinvoices")
+	public String getCustomerInvoices1(@RequestParam("id")int id,Model model) {
+		CustomerInvoiceDetailsDTO dto = customerService.getCustomerInvoices(id);
+		model.addAttribute("getcustomerinvoices",dto.getCustomer());
+		model.addAttribute("invoicelist",dto.getInvoiceList());
+		return "list-customer-invoices";
 	}
 }

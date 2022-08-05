@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,8 +35,13 @@ public class ProductController {
 		return "redirect:/product/getallproducts";
 	}
 	
+	@GetMapping("/updatemainform")
+	public String findUpdateProductForm() {
+		return "find-update-product";
+	}
+	
 	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("id") int id,Model model) {
+	public String showUpdateForm(@RequestParam("productId") int id,Model model) {
 		Product pr = productService.findById(id);
 		model.addAttribute("updateproduct",pr);
 		return "update-product-form";
@@ -65,6 +71,7 @@ public class ProductController {
 	
 	@GetMapping("/getproductbyid")
 	public String getProductById(@RequestParam("productId") int id,Model model) {
+	//	public String getProductById(@PathVariable int id,Model model) {
 		Product pr = productService.findById(id);
 		model.addAttribute("getproduct",pr);
 		return "find-product-by-id"; // find-product-by-id

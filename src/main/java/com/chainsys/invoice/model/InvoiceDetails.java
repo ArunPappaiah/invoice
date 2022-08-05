@@ -2,7 +2,10 @@ package com.chainsys.invoice.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,18 @@ public class InvoiceDetails {
 	private int gst;
 	@Column(name="AMOUNT")
 	private float amount;
+	
+    @OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="INVOICE_NUMBER",nullable=false,insertable=false,updatable=false)
+	private Invoice invoicedetail;  
+	
+	public Invoice getInvoicedetail() {
+		return invoicedetail;
+	}
+	public void setInvoicedetail(Invoice invoicedetail) {
+		this.invoicedetail = invoicedetail;
+	}
+	
 	public String getInvoiceNumber() {
 		return invoiceNumber;
 	}

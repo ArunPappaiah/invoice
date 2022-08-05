@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Invoice;
 
 public interface InvoiceRepository extends CrudRepository<Invoice, String>{
@@ -19,13 +20,14 @@ public interface InvoiceRepository extends CrudRepository<Invoice, String>{
     
     List<Invoice> findAll();
     
+    List<Invoice> findByCustomerId(int id);
 	/*
 	 * @Query("SELECT MAX(invoice_number)FROM Invoice") List<Invoice>
 	 * findMaxInvoiceNumber();
 	 */
     
-	/*
-	 * @Query("SELECT MAX(invoice_number)FROM Invoice") Optional<Invoice>
-	 * getNextInvoiceNumber(String id);
-	 */
+	
+	//  @Query("SELECT MAX(invoice_number)FROM Invoice") 
+	//  Optional<Invoice> getNextInvoiceNumber(String id);
+	 
 }
