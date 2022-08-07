@@ -7,22 +7,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="Invoice_Details")
 public class InvoiceDetails {
 	@Id
 	@Column(name="INVOICE_NUMBER")
+	@NotEmpty(message = "*Please enter value")
 	private String invoiceNumber;
 	@Column(name="PRODUCT_ID")
+	@Min(value = 0,message="*value should be greater than 0")
 	private int productId;
 	@Column(name="QUANTITY")
+	@Min(value = 0,message="*value should be greater than 0")
 	private int quantity;
 	@Column(name="PRICE")
+	@Min(value = 0 , message="*Price is not valid")
+    @Max(value = 5000000, message="*Price is not valid")
 	private float price;
 	@Column(name="GST")
+	@Min(value = 0 , message="*Price is not valid")
+    @Max(value = 50000, message="*Price is not valid")
 	private int gst;
 	@Column(name="AMOUNT")
+	@Min(value = 0 , message="*Price is not valid")
+    @Max(value = 5000000, message="*Price is not valid")
 	private float amount;
 	
     @OneToOne(fetch=FetchType.LAZY)

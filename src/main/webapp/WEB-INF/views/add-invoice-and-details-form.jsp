@@ -14,12 +14,19 @@ function updatePrice() {
 	var qty = document.getElementById("quantity").value;
 	var exPrice = document.getElementById("price").value;
 	var gstPrice = document.getElementById("gst").value;
-
+	var productId = document.getElementById("productId").value;
+	
+	var transCharge = document.getElementById("transportationCharges").value;
+	var totalAmount = document.getElementById("totalAmount").value;
+	
 	var TPrice = parseInt(gstPrice) + parseInt(qty)*parseInt(exPrice);
-
+	var total = parseInt(TPrice)+parseInt(transCharge);
+	
 	document.getElementById("quantity").value = qty;
 	document.getElementById("gst").value = gstPrice;
 	document.getElementById("amount").value = TPrice;
+	document.getElementById("totalAmount").value = total;
+	document.getElementById("productId1").value = productId;
 }
 </script>
 </head>
@@ -50,17 +57,17 @@ function updatePrice() {
  %>
 	<div id="root">
 		<div id="form">
-			<form:form action="transtest" method="get" modelAttribute="addinvoiceanddetails"><!-- modelAttribute="addinvoiceanddetails" -->
+			<form:form action="transtest" method="get" modelAttribute="addinvoiceanddetails">
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
-						<form:input path="invoiceNumber"/>
+						<form:input path="invoiceNumber" name="invoiceNumber" id="invoiceNumber" value="<%=sl3%>" readonly="true"/>
 					</div>
 				</div>  
 				<div>
 					<label for="invoiceDate">Invoice Date</label>
 					<div>
-						<form:input path="invoiceDate" />
+						<form:input path="invoiceDate" type="date"/>
 					</div>
 				</div>
 				<div>
@@ -72,32 +79,32 @@ function updatePrice() {
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" />
+						<form:input path="productId" id="productId" name="productId" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<div>
 					<label for="transportationCharges">Transportation Charge</label>
 					<div>
-						<form:input path="transportationCharges" />
+						<form:input path="transportationCharges" id="transportationCharges" name="transportationCharges" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<div>
 					<label for="totalAmount">Total Amount</label>
 					<div>
-						<form:input path="totalAmount" />
+						<form:input path="totalAmount" id="totalAmount"  name="totalAmount" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				
 				<div>
 					<label for="invoiceNumber1">Invoice Number</label>
 					<div>
-						<form:input path="invoiceNumber1" />
+						<form:input path="invoiceNumber1" name="invoiceNumber" id="invoiceNumber" value="<%=sl3%>" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" />
+						<form:input path="productId" id="productId1" name="productId" onchange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<div>

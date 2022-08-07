@@ -14,6 +14,7 @@ import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Customer;
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
+import com.chainsys.invoice.model.Product;
 
 @Service
 public class CustomerService {
@@ -71,4 +72,6 @@ public class CustomerService {
 	        }
 	        return dto;
 	}
+	
+	
 }

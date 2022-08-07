@@ -7,28 +7,28 @@
 <meta charset="ISO-8859-1">
 <title>Product Lists</title>
 </head>
-<body>
+<body bgcolor=gray>
 	<div id="table root">
-	<table>
+	<table border=1>
 	<thead>
 		<tr>
-		<th>Product Id</th>
-		<th>Product Name</th>
-		<th>Category</th>
-		<th>Price</th>
-		<th>GST Rate</th>
-		<th>Description</th>
+		<th bgcolor=silver>Product Id</th>
+		<th bgcolor=silver>Product Name</th>
+		<th bgcolor=silver>Category</th>
+		<th bgcolor=silver>Price</th>
+		<th bgcolor=silver>GST Rate</th>
+		<th bgcolor=silver>Description</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="product" items="${allproducts}">
 			<tr>
-			<td>${product.productId}</td>
-			<td>${product.productName}</td>
-			<td>${product.categories}</td>
-			<td>${product.price}</td>
-			<td>${product.gstRate}</td>
-			<td>${product.descriptions}</td>
+			<td bgcolor=lightblue>${product.productId}</td>
+			<td bgcolor=lightblue>${product.productName}</td>
+			<td bgcolor=lightblue>${product.categories}</td>
+			<td bgcolor=lightblue>${product.price}</td>
+			<td bgcolor=lightblue>${product.gstRate}</td>
+			<td bgcolor=lightblue>${product.descriptions}</td>
 			</tr>
 		</c:forEach>
 	</tbody>

@@ -7,6 +7,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Invoice Details</title>
+<style type="text/css">
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+</style>
 <script type="text/javascript">
 function calculateAmount(val)
 { 
@@ -16,18 +22,6 @@ function calculateAmount(val)
 	var divobj = document.getElementById('tot_amount');
 	divobj.value = tot_price;
 }
-
-$(document).ready(function() {
-	  $('#gst').keyup(function(ev) {
-	    var gst = $("#gst").val();
-	    var price = $("#price").val();
-	    var qty = $("#qty").val();
-	    var reeta = price * qty;
-	    var tot_price = (reeta * gst / 100) + reeta;
-	    var divobj = document.getElementById('tot_amount');
-	    divobj.value = tot_price;
-	  });
-	});
 	
 function updatePrice() {
     // Get the ex-GST price from its form element
@@ -59,36 +53,42 @@ document.getElementById("amount").value = TPrice;
 						<form:input path="invoiceNumber" />
 					</div>
 				</div>
+				<form:errors path="invoiceNumber" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
 						<form:input path="productId" />
 					</div>
 				</div>
+				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="quantity">Quantity</label>
 					<div>
 						<form:input path="quantity" id="quantity" name="quantity" onchange="updatePrice()"/>
 					</div>
 				</div>
+				<form:errors path="quantity" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
 					<div>
 						<form:input path="price" id="price" name="price" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
 					</div>
 				</div>
+				<form:errors path="price" cssClass="text-danger" />
 				<div>
 					<label for="gst">GST</label>
 					<div>
 						<form:input path="gst" type="text" id="gst" name="gst" onchange="updatePrice()"/>
 					</div>
 				</div>
+				<form:errors path="gst" cssClass="text-danger" />
 				<div>
 					<label for="amount">Amount</label>
 					<div>
 						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/><!-- id="tot_amount" -->
 					</div>
 				</div>
+				<form:errors path="amount" cssClass="text-danger" />
 		<div>
 			<form:button>Add Invoice Details</form:button>
 		</div>

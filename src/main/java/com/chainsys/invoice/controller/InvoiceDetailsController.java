@@ -3,9 +3,12 @@ package com.chainsys.invoice.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +46,10 @@ public class InvoiceDetailsController {
 	}
 	
 	@PostMapping("/addinvoicedetails")
-	public String addInvoiceDetails(@ModelAttribute("addinvoicedetails")InvoiceDetails ivDetails) {
+	public String addInvoiceDetails( @Valid @ModelAttribute("addinvoicedetails")InvoiceDetails ivDetails,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-invoicedetails-form";
+		}
 		invoiceDetailService.save(ivDetails);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}

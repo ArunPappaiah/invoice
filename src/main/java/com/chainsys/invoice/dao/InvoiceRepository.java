@@ -23,13 +23,12 @@ public interface InvoiceRepository extends CrudRepository<Invoice, String>{
     
     List<Invoice> findByCustomerId(int id);
     
-    Invoice findByProductId(int id);
+    List<Invoice> findByProductId(int id);
 	/*
 	 * @Query("SELECT MAX(invoice_number)FROM Invoice") List<Invoice>
 	 * findMaxInvoiceNumber();
 	 */
-    
-	
+   
 	//  @Query("SELECT MAX(invoice_number)FROM Invoice") 
 	//  Optional<Invoice> getNextInvoiceNumber(String id);
 	 

@@ -2,9 +2,12 @@ package com.chainsys.invoice.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +34,10 @@ public class ProductController {
 	}
 	
 	@PostMapping("/addproduct")
-	public String addProduct(@ModelAttribute("addproduct") Product pr) {
+	public String addProduct(@Valid @ModelAttribute("addproduct") Product pr,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-product-form";
+		}
 		productService.save(pr);
 		return "redirect:/product/getallproducts";
 	}
@@ -92,7 +98,7 @@ public class ProductController {
 	public String getProductAndInvoice(@RequestParam("id")int id,Model model) {
 		ProductInvoiceDetailsDTO dto = productService.getProductAndInvoice(id);
 		model.addAttribute("getproduct",dto.getProduct());
-		model.addAttribute("getinvoice",dto.getInvoice());
+		model.addAttribute("getinvoice",dto.getInvoiceList());
 		return "list-product-and-invoice";
 	}
 }

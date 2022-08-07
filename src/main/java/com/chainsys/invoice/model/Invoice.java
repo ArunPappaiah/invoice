@@ -1,6 +1,6 @@
 package com.chainsys.invoice.model;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,18 +11,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Invoice")
 public class Invoice {
 	@Id
 	@Column(name="INVOICE_NUMBER")
+	@NotEmpty(message = "*Please enter value")
 	private String invoiceNumber;
 	@Column(name="INVOICE_DATE")
 	private Date invoiceDate;
 	@Column(name="CUSTOMER_ID")
+	@Min(value = 0,message="*value should be greater than 0")
 	private int customerId;
 	@Column(name="PRODUCT_ID")
+	@Min(value = 0,message="*value should be greater than 0")
 	private int productId;
 	public int getProductId() {
 		return productId;
@@ -31,8 +38,10 @@ public class Invoice {
 		this.productId = productId;
 	}
 	@Column(name="TRANSPORTATION_CHARGES")
+	@Min(value = 0, message="*Value should be in positive numbers")
 	private float transportationCharges;
 	@Column(name="TOTAL_AMOUNT")
+	@Min(value = 0, message="*Value should be in positive numbers")
 	private float totalAmount;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -49,16 +58,20 @@ public class Invoice {
 		this.invoiceDetail = invoiceDetail;
 	}
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PRODUCT_ID",nullable=false,insertable=false,updatable=false)
-	private Product invoice;
+	private Product productdetail;
+	
+//	@OneToOne(fetch=FetchType.LAZY)
+//	@JoinColumn(name="PRODUCT_ID",nullable=false,insertable=false,updatable=false)
+/*	private Product invoice;
 	
 	public Product getInvoice() {
 		return invoice;
 	}
 	public void setInvoice(Product invoice) {
 		this.invoice = invoice;
-	}
+	}  */
 	//--------------------
 	public String getInvoiceNumber() {
 		return invoiceNumber;

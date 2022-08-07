@@ -14,6 +14,7 @@ import com.chainsys.invoice.dto.InvoiceAndInvoiceDetailsDTO;
 import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
+import com.chainsys.invoice.model.Product;
 
 @Service
 public class InvoiceService {
@@ -64,6 +65,7 @@ public class InvoiceService {
 				
 		return dto;
 	} 
+	 
 	
 /*	public void selectId(String id) {
 		invoiceRepo.getNextInvoiceNumber(id);

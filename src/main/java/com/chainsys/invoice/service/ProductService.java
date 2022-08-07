@@ -1,5 +1,6 @@
 package com.chainsys.invoice.service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class ProductService {
 	}
 	
 	public Product save(Product pr) {
+		pr.setPrice(0);
 		productRepo.save(pr);
 		return productRepo.save(pr);
 	}
@@ -42,8 +44,15 @@ public class ProductService {
 		Product product = findById(id);
 		ProductInvoiceDetailsDTO dto = new ProductInvoiceDetailsDTO();
 		dto.setProduct(product);
-		Invoice invoice = invoiceRepo.findByProductId(id);
-		dto.setInvoice(invoice);
+		List<Invoice> invoiceList = invoiceRepo.findByProductId(id);
+		Iterator<Invoice> iterator = invoiceList.iterator();
+        while(iterator.hasNext()) {
+        	dto.addproductAndInvoiceList((Invoice)iterator.next());
+        }
 		return dto;
 	}
+	
+	 public List<Product> allProduct(){
+		 return productRepo.findAll();
+	 }
 }

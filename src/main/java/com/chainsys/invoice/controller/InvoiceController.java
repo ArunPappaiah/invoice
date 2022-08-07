@@ -5,9 +5,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +22,9 @@ import com.chainsys.invoice.dto.InvoiceAndInvoiceDetailsDTO;
 import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
+import com.chainsys.invoice.model.Product;
 import com.chainsys.invoice.service.InvoiceService;
+import com.chainsys.invoice.service.ProductService;
 
 @Controller
 @RequestMapping("/invoice")
@@ -28,6 +33,8 @@ public class InvoiceController {
 	@Autowired
 	InvoiceService invoiceService;
 	
+	@Autowired
+	ProductService productRepo;
 	@GetMapping("/findinvoiceform")
 	public String findInvoiceForm() {
 		return "find-invoice-form";
@@ -72,14 +79,18 @@ public class InvoiceController {
 	} 
 	@GetMapping("/addform")
 	public String showAddForm(Model model) {
+		List<Product> allProduct = productRepo.allProduct();
+		model.addAttribute("allproduct",allProduct);
 		Invoice iv = new Invoice();
 		model.addAttribute("addinvoice",iv);
 		return "add-invoice-form";
 	}
 	
 	@PostMapping("/addinvoice")
-	public String addInvoice(@ModelAttribute("addinvoice")Invoice iv) {
-		// iv.setTransportationCharges(50);
+	public String addInvoice(@Valid @ModelAttribute("addinvoice")Invoice iv,Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-invoice-form";
+		}
 		invoiceService.save(iv);
 		return "redirect:/invoice/getallinvoices";
 	}
@@ -111,14 +122,14 @@ public class InvoiceController {
 		dto.setAmount(invoiceDetails.getAmount());
 		dto.addInvoiceDetails(invoiceDetails);
 		 invoiceService.addInvoiceAndInvoiceDetails(dto);
-		return "Added successfully!!";
+		return "redirect:/invoice/getallinvoices";
 	}
-    
+   
     @GetMapping("/updateinvoiceanddetailsmainform")
 	public String findUpdateInvoiceAndDetailsForm() {
 		return "find-update-invoice-and-details";
 	}
-    
+ 
     @GetMapping("/updateinvoiceanddetailsform")
 	public String findInvoiceDetailsForm(@RequestParam("id")String id,Model model) {
     	//Optional<InvoiceDetailsDTO> invoice =invoiceService.findById(id);
@@ -162,6 +173,7 @@ public class InvoiceController {
     	model.addAttribute("invoicedetailslist",dto.getInvoiceDetails());
     	return "list-invoice-and-invoicedetails";
     }
+    
 	/*@PostMapping("/getmaxinvoice")
 	public String getMaxInvoiceNum(Model model) {
 		Invoice iv = new Invoice();

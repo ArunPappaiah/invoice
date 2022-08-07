@@ -2,14 +2,23 @@ package com.chainsys.invoice.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.chainsys.invoice.dto.CustomerInvoiceDetailsDTO;
 import com.chainsys.invoice.dto.InvoiceDetailsDTO;
@@ -19,7 +28,7 @@ import com.chainsys.invoice.service.CustomerService;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-
+	
 	@Autowired
 	CustomerService customerService;
 	
@@ -43,8 +52,12 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/addcustomer")
-	public String addCustomer(@ModelAttribute("addcustomer")Customer cr) {
+	public String addCustomer( @Valid @ModelAttribute("addcustomer")Customer cr,Errors errors) { 
+		if(errors.hasErrors()) {
+			return "add-customer-form";
+		}
 		customerService.save(cr);
+		
 		return "redirect:/customer/getallcustomers";
 	}
 	

@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div id="root">
-		<div id="form">
-			<form:form action="getproductandinvoice" method="post"
+		<div id="getproductinvoiceform">
+			<form:form action="" method="post"
 				modelAttribute="getproduct">
 				<div>
 					<label for="productId">Product Id</label>
@@ -51,48 +51,32 @@
 				</div>
 		</form:form>
 	</div>
-	</div>
-	<div id="root">
-		<div id="form">
-			<form:form action="getproductandinvoice" method="get" modelAttribute="getinvoice">
-				  <div>
-					<label for="invoiceNumber">Invoice Number</label>
-					<div>
-						<form:input path="invoiceNumber"/>
-					</div>
-				</div>  
-				<div>
-					<label for="invoiceDate">Invoice Date</label>
-					<div>
-						<form:input path="invoiceDate" />
-					</div>
-				</div>
-				<div>
-					<label for="customerId">Customer Id</label>
-					<div>
-						<form:input path="customerId" />
-					</div>
-				</div>
-				<div>
-					<label for="productId">Product Id</label>
-					<div>
-						<form:input path="productId" />
-					</div>
-				</div>
-				<div>
-					<label for="transportationCharges">Transportation Charge</label>
-					<div>
-						<form:input path="transportationCharges" />
-					</div>
-				</div>
-				<div>
-					<label for="totalAmount">Total Amount</label>
-					<div>
-						<form:input path="totalAmount" />
-					</div>
-				</div>
-				</form:form>
-				</div>
+	<div id="getinvoice">
+	<table>
+		<thead>
+		<tr>
+		<th>Invoice Number</th>
+		<th>Invoice Date</th>
+		<th>Customer Id</th>
+		<th>Product Id</th>
+		<th>Transportation Charge</th>
+		<th>Total Amount</th>
+		</tr>
+	</thead>
+		<tbody>
+			<c:forEach var="invoice" items="${getinvoice}">
+			<tr>
+			<td>${invoice.invoiceNumber}</td>
+			<td>${invoice.invoiceDate}</td>
+			<td>${invoice.customerId}</td>
+			<td>${invoice.productId}</td>
+			<td>${invoice.transportationCharges}</td>
+			<td>${invoice.totalAmount}</td>
+			</tr>
+			</c:forEach>
+		</tbody>
+		</table>
+		</div>
 	</div>
 </body>
 </html>

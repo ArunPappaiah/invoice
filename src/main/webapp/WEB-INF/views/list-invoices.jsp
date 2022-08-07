@@ -7,28 +7,28 @@
 <meta charset="ISO-8859-1">
 <title>Invoices List</title>
 </head>
-<body>
+<body bgcolor=gray>
 	<div id="table root">
-	<table>
+	<table border=1>
 	<thead>
 		<tr>
-		<th>Invoice Number</th>
-		<th>Invoice Date</th>
-		<th>Customer Id</th>
-		<th>Product Id</th>
-		<th>Transportation Charge</th>
-		<th>Total Amount</th>
+		<th bgcolor=silver>Invoice Number</th>
+		<th bgcolor=silver>Invoice Date</th>
+		<th bgcolor=silver>Customer Id</th>
+		<th bgcolor=silver>Product Id</th>
+		<th bgcolor=silver>Transportation Charge</th>
+		<th bgcolor=silver>Total Amount</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="invoice" items="${allinvoices}">
 			<tr>
-			<td>${invoice.invoiceNumber}</td>
-			<td>${invoice.invoiceDate}</td>
-			<td>${invoice.customerId}</td>
-			<td>${invoice.productId}</td>
-			<td>${invoice.transportationCharges}</td>
-			<td>${invoice.totalAmount}</td>
+			<td bgcolor=lightblue>${invoice.invoiceNumber}</td>
+			<td bgcolor=lightblue>${invoice.invoiceDate}</td>
+			<td bgcolor=lightblue>${invoice.customerId}</td>
+			<td bgcolor=lightblue>${invoice.productId}</td>
+			<td bgcolor=lightblue>${invoice.transportationCharges}</td>
+			<td bgcolor=lightblue>${invoice.totalAmount}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
