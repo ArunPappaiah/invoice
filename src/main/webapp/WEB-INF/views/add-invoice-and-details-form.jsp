@@ -96,41 +96,43 @@ function updatePrice() {
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
-						<form:input path="invoiceNumber" id="invoiceNumber" onchange="updatePrice()"/>
+						<form:input path="invoiceNumber" id="invoiceNumber" required="true" onchange="updatePrice()"/>
 					</div>
 				</div> 
 				<form:errors path="invoiceNumber" cssClass="text-danger" /> 
 				<div>
 					<label for="invoiceDate">Invoice Date</label>
 					<div>
-						<form:input path="invoiceDate" type="date" id="invoiceDate"/>
+						<form:input path="invoiceDate" type="date" id="invoiceDate" required="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="customerId">Customer Id</label>
 					<div>
-						<form:input path="customerId" id="customerId" placeholder="Enter Id"/>
+						<form:input path="customerId" id="customerId" placeholder="Enter Id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="customerId" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" id="productId" name="productId" placeholder="Enter Id" onchange="updatePrice()"/>
+						<form:input path="productId" id="productId" name="productId" required="true" placeholder="Enter Id" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="transportationCharges">Transportation Charge</label>
 					<div>
-						<form:input path="transportationCharges" id="transportationCharges" name="transportationCharges" onchange="updatePrice()"/>
+						<form:input path="transportationCharges" id="transportationCharges" name="transportationCharges" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="transportationCharges" cssClass="text-danger" />
 				<div>
 					<label for="totalAmount">Total Amount</label>
 					<div>
-						<form:input path="totalAmount" id="totalAmount"  name="totalAmount" onChange="updatePrice(this.form)"/>
+						<form:input path="totalAmount" id="totalAmount"  name="totalAmount" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="totalAmount" cssClass="text-danger" />
@@ -138,53 +140,55 @@ function updatePrice() {
 				<div>
 					<label for="invoiceNumber1">Invoice Number</label>
 					<div>
-						<form:input path="invoiceNumber1" name="invoiceNumber" id="invoiceNumber1" onchange="updatePrice(this.form)"/>
+						<form:input path="invoiceNumber1" name="invoiceNumber" id="invoiceNumber1" required="true" onchange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="invoiceNumber1" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" id="productId1" name="productId" onchange="updatePrice(this.form)"/>
+						<form:input path="productId" id="productId1" name="productId" required="true" onchange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="quantity">Quantity</label>
 					<div>
-						<form:input path="quantity" id="quantity" name="quantity" placeholder="Enter quantity" onchange="updatePrice()"/>
+						<form:input path="quantity" id="quantity" name="quantity" placeholder="Enter quantity" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 					<form:errors path="quantity" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price" id="price" name="price" onchange="updatePrice(this.form)"/><!-- "calculateAmount(this.value)" -->
+						<form:input path="price" id="price" name="price" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice(this.form)"/><!-- "calculateAmount(this.value)" -->
 					</div>
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
 					<label for="gst">GST</label>
 					<div>
-						<form:input path="gst" type="text" id="gst" name="gst" onchange="updatePrice()"/>
+						<form:input path="gst" type="text" id="gst" name="gst" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="gst" cssClass="text-danger" />
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/>
+						<form:input path="amount" type="text" id="amount"  name="amount" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="amount" cssClass="text-danger" />
 		<div>
 			<form:button>Add Invoice</form:button>
 		</div>
-		<br>
+		<!-- <br>
             <input type="button" id="submit" value="Submit">
-        <br>
+        <br> -->
 		</form:form>
-		 <table id="table" border=1>
+		 <!-- <table id="table" border=1>
             <tr>
             	<th>Invoice Number</th>
             	<th>Invoice Date</th>
@@ -238,9 +242,10 @@ function updatePrice() {
             }
         
         </script>
-        
+         -->
+         <br><br><button onclick="window.print()">Print page</button>
 	</div>
 	</div>
-	<button onclick="window.print()">Print page</button>
+	
 </body>
 </html>

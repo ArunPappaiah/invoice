@@ -33,42 +33,44 @@ body {
 				<div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
-						<form:input path="invoiceNumber" />
+						<form:input path="invoiceNumber" placeholder="Enter invoice no" required="true"/>
 					</div>
 				</div>
 				<form:errors path="invoiceNumber" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" />
+						<form:input path="productId" placeholder="Enter product id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="quantity">Quantity</label>
 					<div>
-						<form:input path="quantity" id="quantity" name="quantity" onchange="updatePrice()"/>
+						<form:input path="quantity" id="quantity" name="quantity"  placeholder="Enter quantity" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="quantity" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price" id="price" name="price" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
+						<form:input path="price" id="price" name="price" placeholder="Enter price" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
 					</div>
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
-					<label for="gst">GST</label>
+					<label for="gst">GST%</label>
 					<div>
-						<form:input path="gst" type="text" id="gst" name="gst" onchange="updatePrice()"/>
+						<form:input path="gst" type="text" id="gst" name="gst"  placeholder="Enter gst amount" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="gst" cssClass="text-danger" />
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/><!-- id="tot_amount" -->
+						<form:input path="amount" type="text" id="amount"  name="amount" placeholder="Amount" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="amount" cssClass="text-danger" />

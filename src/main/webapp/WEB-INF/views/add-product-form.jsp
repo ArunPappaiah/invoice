@@ -76,16 +76,15 @@ body {
 				<h1>Add Product</h1>
 				<div>
 					<label for="productId">Product Id</label>
-					<!-- <input type="text" name="" onkeyup="gst(this.category);"> -->
 					<div>
-						<form:input path="productId"  placeholder="Enter product id"/>
+						<form:input path="productId"  placeholder="Enter product id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger"/>
 				<div>
 					<label for="productName">Product Name</label>
 					<div>
-						<form:input path="productName" placeholder="Enter product name"/>
+						<form:input path="productName" placeholder="Enter product name" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productName" cssClass="text-danger" />
@@ -106,21 +105,22 @@ body {
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price"  placeholder="Enter price" />
+						<form:input path="price"  placeholder="Enter price" title="Price can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
 					<label for="gstRate">GST Rate</label>
 					<div>
-						<form:input path="gstRate"  type="text" readonly="true" id="out2x" name="" placeholder="GST%"/>
+						<form:input path="gstRate"  type="text" readonly="true" id="out2x" name="" placeholder="GST%" required="true"/>
 					</div>
 				</div>
 				<form:errors path="gstRate" cssClass="text-danger" />
 				<div>
 					<label for="descriptions">Description</label>
 					<div>
-						<form:input path="descriptions" placeholder="Enter description"/>
+						<form:input path="descriptions" placeholder="Enter description" required="true"/>
 					</div>
 				</div>
 				<form:errors path="descriptions" cssClass="text-danger" />
