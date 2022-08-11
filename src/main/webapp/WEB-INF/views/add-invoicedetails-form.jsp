@@ -12,6 +12,16 @@
     color: #e80c4d;
     font-size: 0.9em;
 }
+body {
+	background-image:
+		url("https://wallpaperaccess.com/full/1567846.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
 </style>
 <script type="text/javascript">
 function calculateAmount(val)
@@ -31,8 +41,10 @@ var gstPrice = document.getElementById("gst").value;
 
 //Get the GST price
 // gstPrice =  Number(exPrice) + Number(gstPrice);
-var TPrice = parseInt(gstPrice) + parseInt(qty)*parseInt(exPrice);
+var amt = exPrice*qty;
+var TPrice = (amt*gstPrice/100)+amt;
 
+//var TPrice = parseInt(gstPrice) + parseInt(qty)*parseInt(exPrice);
 //Set the GST price in its form element
 document.getElementById("quantity").value = qty;
 document.getElementById("gst").value = gstPrice;
@@ -43,49 +55,50 @@ document.getElementById("amount").value = TPrice;
 </script>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="addinvoicedetails" method="post"
 				modelAttribute="addinvoicedetails">
+				<h1>Adding Invoice Details Form</h1>
 				<div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
-						<form:input path="invoiceNumber" />
+						<form:input path="invoiceNumber" placeholder="Enter invoice no"/>
 					</div>
 				</div>
 				<form:errors path="invoiceNumber" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" />
+						<form:input path="productId" placeholder="Enter product id"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="quantity">Quantity</label>
 					<div>
-						<form:input path="quantity" id="quantity" name="quantity" onchange="updatePrice()"/>
+						<form:input path="quantity" id="quantity" name="quantity" placeholder="Enter quantity" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="quantity" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price" id="price" name="price" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
+						<form:input path="price" id="price" name="price" placeholder="Enter price" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
 					</div>
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
-					<label for="gst">GST</label>
+					<label for="gst">GST%</label>
 					<div>
-						<form:input path="gst" type="text" id="gst" name="gst" onchange="updatePrice()"/>
+						<form:input path="gst" type="text" id="gst" name="gst" placeholder="Enter gst amount" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="gst" cssClass="text-danger" />
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/><!-- id="tot_amount" -->
+						<form:input path="amount" type="text" id="amount"  name="amount" placeholder="Amount" onChange="updatePrice(this.form)"/><!-- id="tot_amount" -->
 					</div>
 				</div>
 				<form:errors path="amount" cssClass="text-danger" />

@@ -26,7 +26,6 @@ public class ProductService {
 	}
 	
 	public Product save(Product pr) {
-		pr.setPrice(0);
 		productRepo.save(pr);
 		return productRepo.save(pr);
 	}

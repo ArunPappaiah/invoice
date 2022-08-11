@@ -8,6 +8,9 @@ import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
@@ -38,7 +41,6 @@ public class InvoiceDetailsDTO {
 	}  */
 
 	// ----------------------------
-	
 	private String invoiceNumber;
 	private Date invoiceDate;
 	private int customerId;
@@ -49,7 +51,6 @@ public class InvoiceDetailsDTO {
 	public void setProductId1(int productId1) {
 		this.productId1 = productId1;
 	}
-
 	private float transportationCharges;
 	private float totalAmount;
 	public String getInvoiceNumber() {

@@ -8,7 +8,8 @@
 <title>All Invoice Details List</title>
 </head>
 <body bgcolor=gray>
-	<div id="table root">
+	<div id="table root" align="center">
+	<h1>Invoice Details Lists</h1>
 	<table border=1>
 	<thead>
 		<tr>

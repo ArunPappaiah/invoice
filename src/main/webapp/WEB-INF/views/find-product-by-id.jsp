@@ -7,12 +7,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Product By Id</title>
+<style type="text/css">
+	body {
+	background-image:
+		url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGRlc2lnbnxlbnwwfHwwfHw%3D&w=1000&q=80");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="getproductbyid" method="get"
 				modelAttribute="getproduct">
+				<h1>Product Detail</h1>
 				<div>
 					<label for="productId">Product Id</label>
 					<div>

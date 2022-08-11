@@ -55,7 +55,10 @@ public class ProductController {
 	}
 	
 	@PostMapping("/updateproduct")
-	public String modifyProduct(@ModelAttribute("updateproduct") Product pr) {
+	public String modifyProduct(@Valid @ModelAttribute("updateproduct") Product pr,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-product-form";
+		}
 		productService.save(pr);
 		return "redirect:/product/getallproducts";
 	}

@@ -60,9 +60,17 @@ public class InvoiceController {
 	}
 	
 	@PostMapping("/updateinvoice")
-	public String modifyInvoice(@ModelAttribute("updateinvoice") Invoice iv) {
+	public String modifyInvoice(@Valid @ModelAttribute("updateinvoice") Invoice iv,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-invoice-form";
+		}
 		invoiceService.save(iv);
 		return "redirect:/invoice/getallinvoices";
+	}
+	
+	@RequestMapping("/deleteform")
+	public String deleteForm() {
+		return "delete-invoice";
 	}
 	
 	@GetMapping("/deleteinvoice")
@@ -104,7 +112,6 @@ public class InvoiceController {
 	
     @GetMapping("/transtest")
    	public String addInvoiceAndDetails(@ModelAttribute("addinvoiceanddetails")Invoice invoice,InvoiceDetails invoiceDetails){
-
     	InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
 		dto.setInvoiceNumber(invoice.getInvoiceNumber());
 		dto.setInvoiceDate(invoice.getInvoiceDate());
@@ -121,6 +128,7 @@ public class InvoiceController {
 		dto.setGst(invoiceDetails.getGst());
 		dto.setAmount(invoiceDetails.getAmount());
 		dto.addInvoiceDetails(invoiceDetails);
+		
 		 invoiceService.addInvoiceAndInvoiceDetails(dto);
 		return "redirect:/invoice/getallinvoices";
 	}

@@ -7,12 +7,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Customer By Id</title>
+<style type="text/css">
+	body {
+	background-image:
+		url("https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=2000");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="getcustomerbyid" method="get"
 				modelAttribute="getcustomer">
+				<h1>Customer Details</h1>
 				<div>
 					<label for="customerId">Customer Id</label>
 					<div>

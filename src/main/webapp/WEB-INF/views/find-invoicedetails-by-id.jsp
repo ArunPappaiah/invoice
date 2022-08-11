@@ -7,12 +7,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Invoice Details</title>
+<style type="text/css">
+body {
+	background-image:
+		url("https://i2.wp.com/files.123freevectors.com/wp-content/original/19530-light-blue-square-background.jpg?w=600");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="getinvoicedetailsbyid" method="post"
 				modelAttribute="getinvoicedetails">
+				<h1>Invoice Details</h1>
 				<div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>

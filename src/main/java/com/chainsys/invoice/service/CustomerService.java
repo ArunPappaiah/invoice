@@ -47,20 +47,6 @@ public class CustomerService {
 		customerRepo.deleteById(id);
 	}
 	
-	/* public InvoiceDetailsDTO getCustomerAndInvoices(int id) {
-		Customer customer = findById(id);
-		InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
-		dto.setCustomer(customer);
-		 
-	        
-	        List<Invoice> invoiceList = invoiceRepo.findByCustomerId(id);
-	        Iterator<Invoice> iterator = invoiceList.iterator();
-	        while(iterator.hasNext()) {
-	        	dto.addInvoice((Invoice)iterator.next());
-	        }
-		return dto;
-	}   */
-	
 	public CustomerInvoiceDetailsDTO getCustomerInvoices(int id) {
 		Customer customer = findById(id);
 		CustomerInvoiceDetailsDTO dto = new CustomerInvoiceDetailsDTO();

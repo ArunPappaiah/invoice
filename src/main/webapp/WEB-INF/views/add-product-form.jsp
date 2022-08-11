@@ -12,6 +12,16 @@
     color: #e80c4d;
     font-size: 0.9em;
 }
+body {
+	background-image:
+		url("https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-shopping-mall-supermarket-selection-merchandise-poster-background-material-image_133225.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
 </style>
 <script type="text/javascript">
 	function calc(value){
@@ -32,6 +42,7 @@
 				x=0;
 			}
 		document.getElementById('out2x').value=x;
+		
 	}
 	/* function mult(value){
 		var x;
@@ -39,25 +50,42 @@
 		document.getElementById('out2x').value=x;
 		document.getElementById("out2x").readOnly = true; 
 	} */
+	
+	function price(){
+		var productId = document.getElementById("productId").value;
+		var price;
+		if(productId==50){
+			price=3000;
+		}else if(productId==51){
+			price=5000;
+		}else if(productId==52){
+			price=7000;
+		}else{
+			price=0;
+		}
+		document.getElementById('price').value=price;
+	}
+	
 </script>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="addproduct" method="post"
-				modelAttribute="addproduct">
+				modelAttribute="addproduct" id="myform">
+				<h1>Add Product</h1>
 				<div>
 					<label for="productId">Product Id</label>
 					<!-- <input type="text" name="" onkeyup="gst(this.category);"> -->
 					<div>
-						<form:input path="productId" />
+						<form:input path="productId"  placeholder="Enter product id"/>
 					</div>
 				</div>
-				<form:errors path="productId" cssClass="text-danger" />
+				<form:errors path="productId" cssClass="text-danger"/>
 				<div>
 					<label for="productName">Product Name</label>
 					<div>
-						<form:input path="productName" />
+						<form:input path="productName" placeholder="Enter product name"/>
 					</div>
 				</div>
 				<form:errors path="productName" cssClass="text-danger" />
@@ -74,25 +102,25 @@
 						<option value="cosmetics">Cosmetics</option>
 						</select>
 				</div>
-				<form:errors path="productName" cssClass="text-danger" />
+				<form:errors path="categories" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price" />
+						<form:input path="price"  placeholder="Enter price" />
 					</div>
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
 					<label for="gstRate">GST Rate</label>
 					<div>
-						<form:input path="gstRate"  type="text" readonly="true" id="out2x" name="" />
+						<form:input path="gstRate"  type="text" readonly="true" id="out2x" name="" placeholder="GST%"/>
 					</div>
 				</div>
 				<form:errors path="gstRate" cssClass="text-danger" />
 				<div>
 					<label for="descriptions">Description</label>
 					<div>
-						<form:input path="descriptions" />
+						<form:input path="descriptions" placeholder="Enter description"/>
 					</div>
 				</div>
 				<form:errors path="descriptions" cssClass="text-danger" />

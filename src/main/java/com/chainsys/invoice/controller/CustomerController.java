@@ -74,7 +74,10 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/updatecustomer")
-	public String modifyCustomer(@ModelAttribute("updatecustomer") Customer cr) {
+	public String modifyCustomer(@Valid @ModelAttribute("updatecustomer") Customer cr,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-customer-form";
+		}
 		customerService.save(cr);
 		return "redirect:/customer/getallcustomers";
 	}
@@ -101,14 +104,6 @@ public class CustomerController {
 	public String findCustomerInvoicesForm() {
 		return "find-customer-invoices";
 	}
-	
-/*	@GetMapping("/getcustomerinvoices")
-	public String getCustomerInvoices(@RequestParam("id")int id,Model model) {
-		InvoiceDetailsDTO dto = customerService.getCustomerAndInvoices(id);
-		model.addAttribute("getcustomerinvoices",dto.getCustomer());
-		model.addAttribute("invoicelist",dto.getInvoices());
-		return "list-customer-invoices";
-	}  */
 	
 	@GetMapping("/getcustomerinvoices")
 	public String getCustomerInvoices1(@RequestParam("id")int id,Model model) {

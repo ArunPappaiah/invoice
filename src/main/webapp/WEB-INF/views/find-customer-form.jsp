@@ -7,11 +7,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Customer</title>
+<style type="text/css">
+	body {
+	background-image:
+		url("https://images.unsplash.com/photo-1621416953228-87ad15716483?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJhY2tncm91bmQlMjBkZXNpZ258ZW58MHx8MHx8&w=1000&q=80");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
-   <form action="getcustomerbyid">
+   <form action="getcustomerbyid" >
+   <h1>Find Customer Form</h1>
 	<div>
-		Customer Id: <input type="text" id="customerId" name="id" />
+		Customer Id: <input type="text" id="customerId" name="id" placeholder="Enter customer id"/>
 	</div>
 	<br>
 	<input type="submit" value="Find" />

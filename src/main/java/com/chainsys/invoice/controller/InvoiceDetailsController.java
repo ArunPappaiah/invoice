@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
+import com.chainsys.invoice.model.Product;
 import com.chainsys.invoice.service.InvoiceDetailsService;
 
 @Controller
@@ -50,6 +51,9 @@ public class InvoiceDetailsController {
 		if(errors.hasErrors()) {
 			return "add-invoicedetails-form";
 		}
+		Product product = new Product();
+		//ivDetails.setPrice(product.getPrice());
+	   // ivDetails.setPrice(product.getPrice());
 		invoiceDetailService.save(ivDetails);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
@@ -67,9 +71,17 @@ public class InvoiceDetailsController {
 	}
 	
 	@PostMapping("/updateinvoicedetails")
-	public String modifyInvoiceDetails(@ModelAttribute("updateinvoicedetails") InvoiceDetails ivDetails) {
+	public String modifyInvoiceDetails(@Valid @ModelAttribute("updateinvoicedetails") InvoiceDetails ivDetails,Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-invoice-details-form";
+		}
 		invoiceDetailService.save(ivDetails);
 		return "redirect:/invoicedetails/getallinvoicedetails";
+	}
+	
+	@RequestMapping("/deleteform")
+	public String deleteForm() {
+		return "delete-invoice-details";
 	}
 	
 	@GetMapping("/deleteinvoicedetails")

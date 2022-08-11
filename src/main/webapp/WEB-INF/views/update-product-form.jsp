@@ -7,6 +7,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Product</title>
+<style type="text/css">
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+body {
+	background-image:
+		url("https://legal.thomsonreuters.com/blog/wp-content/uploads/sites/19/2020/10/AdobeStock_329598724-370x208.jpeg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 <script type="text/javascript">
 function mult(value){
 	var x;
@@ -30,22 +46,25 @@ function mult(value){
 </script>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="updateproduct" method="post"
 				modelAttribute="updateproduct">
+				<h1>Update Product Form</h1>
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
 						<form:input path="productId" />
 					</div>
 				</div>
+				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="productName">Product Name</label>
 					<div>
 						<form:input path="productName" />
 					</div>
 				</div>
+				<form:errors path="productName" cssClass="text-danger" />
 				<div>
 					    <label for="categories">Select Category</label>
 					    <br>
@@ -59,24 +78,28 @@ function mult(value){
 						<option value="cosmetics">Cosmetics</option>
 						</select>
 				</div>
+				<form:errors path="categories" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
 					<div>
 						<form:input path="price" />
 					</div>
 				</div>
+				<%-- <form:errors path="price" cssClass="text-danger" /> --%>
 				<div>
 					<label for="gstRate">GST Rate</label>
 					<div>
 						<form:input path="gstRate"  type="text" readonly="readonly" id="out2x" name="" />
 					</div>
 				</div>
+				<form:errors path="gstRate" cssClass="text-danger" />
 				<div>
 					<label for="descriptions">Description</label>
 					<div>
 						<form:input path="descriptions" />
 					</div>
 				</div>
+				<form:errors path="descriptions" cssClass="text-danger" />
 		<div>
 			<form:button>Update Product</form:button>
 		</div>

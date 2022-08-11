@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 public class Product {
 	@Id
 	@Column(name="PRODUCT_ID")
-	@Min(value = 0,message="*value should be greater than 0")
+	@Min(value = 1,message="*value should be greater than 0")
 	private int productId;
 	@Column(name="PRODUCT_NAME")
 	@Size(max = 30, min = 2, message = "*Name length should be 2 to 30")
@@ -28,9 +28,9 @@ public class Product {
 	@Column(name="CATEGORIES")
 	@NotEmpty(message = "*Please select category")
 	private String categories;
+	//@Min(value = 0 , message="*Price is not valid")
+   // @Max(value = 500000, message="*Price is not valid")
 	@Column(name="PRICE")
-	@Min(value = 0 , message="*Price is not valid")
-    @Max(value = 5000000, message="*Price is not valid")
 	private float price;
 	@Column(name="GST_RATE")
 	@Min(value = 0,message="*value should be greater than 0")

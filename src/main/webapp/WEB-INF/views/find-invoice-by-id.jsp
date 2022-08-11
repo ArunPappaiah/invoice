@@ -7,12 +7,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Invoice By Id</title>
+<style type="text/css">
+body {
+	background-image:
+		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKr0Kj1XrEzBJQk-6RuK8pTrltgS3w3MXDNQ&usqp=CAU");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="getinvoicebyid" method="post"
 				modelAttribute="getinvoice">
+				<h1>Invoice</h1>
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>

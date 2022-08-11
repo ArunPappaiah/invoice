@@ -7,12 +7,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>List Of Invoice And Invoice Details</title>
+<style type="text/css">
+body {
+	background-image:
+		url("https://cdn.99images.com/photos/wallpapers/3d-abstract/blue%20android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-wzdmi.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="getinvoiceandinvoicedetails" method="post"
 				modelAttribute="getinvoiceandinvoicedetails">
+				<h1>Invoice And Invoice Details</h1>
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
@@ -53,7 +66,7 @@
 		</form:form>
 	</div>
 	</div>
-	<div id="root">
+	<div id="root" align="center">
 		<div id="form">
 			<form:form action="getinvoiceandinvoicedetails" method="post"
 				modelAttribute="invoicedetailslist">

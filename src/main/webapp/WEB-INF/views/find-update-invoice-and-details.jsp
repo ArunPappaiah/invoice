@@ -9,7 +9,7 @@
 <body>
 	 <form action="updateinvoiceanddetailsform">
 	<div>
-		Invoice Number: <input type="text" id="invoiceNumber" name="id" />
+		Invoice Number: <input type="text" id="invoiceNumber" name="id" placeholder="Enter invoice no"/>
 	</div>
 	<br>
 	<input type="submit" value="Find" />
