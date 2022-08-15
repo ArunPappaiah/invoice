@@ -3,29 +3,14 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Invoice</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-body {
-	background-image:
-		url("https://alto.co/wp-content/uploads/2019/05/alto-invoice-background.png");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/updateinvoiceform.css"%></style>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="updateinvoice" method="post"
 				modelAttribute="updateinvoice">

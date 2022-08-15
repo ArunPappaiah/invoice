@@ -3,25 +3,14 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Product By Id</title>
-<style type="text/css">
-	body {
-	background-image:
-		url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGRlc2lnbnxlbnwwfHwwfHw%3D&w=1000&q=80");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/findproductbyid.css"%></style>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="getproductbyid" method="get"
 				modelAttribute="getproduct">

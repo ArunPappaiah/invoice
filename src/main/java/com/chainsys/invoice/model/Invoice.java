@@ -1,8 +1,6 @@
 package com.chainsys.invoice.model;
 
 import java.sql.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,10 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Invoice")
@@ -62,17 +58,6 @@ public class Invoice {
 	@JoinColumn(name="PRODUCT_ID",nullable=false,insertable=false,updatable=false)
 	private Product productdetail;
 	
-//	@OneToOne(fetch=FetchType.LAZY)
-//	@JoinColumn(name="PRODUCT_ID",nullable=false,insertable=false,updatable=false)
-/*	private Product invoice;
-	
-	public Product getInvoice() {
-		return invoice;
-	}
-	public void setInvoice(Product invoice) {
-		this.invoice = invoice;
-	}  */
-	//--------------------
 	public String getInvoiceNumber() {
 		return invoiceNumber;
 	}

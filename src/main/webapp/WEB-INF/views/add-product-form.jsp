@@ -3,26 +3,11 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Product</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-body {
-	background-image:
-		url("https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-shopping-mall-supermarket-selection-merchandise-poster-background-material-image_133225.jpg");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/addproduct.css"%></style>
 <script type="text/javascript">
 	function calc(value){
 		var x;
@@ -44,13 +29,7 @@ body {
 		document.getElementById('out2x').value=x;
 		
 	}
-	/* function mult(value){
-		var x;
-		x=2*value;
-		document.getElementById('out2x').value=x;
-		document.getElementById("out2x").readOnly = true; 
-	} */
-	
+
 	function price(){
 		var productId = document.getElementById("productId").value;
 		var price;
@@ -66,25 +45,65 @@ body {
 		document.getElementById('price').value=price;
 	}
 	
+	var productIdCheck = function() {
+		if(document.myForm.productId.value == ""){
+			if(alert("Product Id cannot be blank")){
+				document.myForm.productId.focus();
+			}
+			else
+				document.activeElement.blur();
+	    }
+	    else{
+	        return false;
+	    } 
+	}
+	
+	var productNameCheck = function() {
+		if(document.myForm.productName.value == ""){
+			if(alert("Product Name cannot be blank")){
+				document.myForm.productName.focus();
+			}
+			else
+				document.activeElement.blur();
+	    }
+	    else{
+	        return false;
+	    } 
+	}
+	
+	var priceCheck = function() {
+		 var priceRg = new RegExp("^\d{0,8}(\.\d{1,4})?$");
+		 if(!document.myForm.price.value.match(priceRg)){
+				if(alert("Price can't be empty or must contain numeric values")){
+					 document.myForm.price.focus();
+				}
+				else
+					document.activeElement.blur();
+			}
+	    else{
+	    	return false;
+	    }
+	} 
+	
 </script>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center" >
 		<div id="form">
 			<form:form action="addproduct" method="post"
-				modelAttribute="addproduct" id="myform">
+				modelAttribute="addproduct" id="myform" name="myForm">
 				<h1>Add Product</h1>
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId"  placeholder="Enter product id" required="true"/>
+						<form:input path="productId" name="productId" onblur="productIdCheck();" placeholder="Enter product id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger"/>
 				<div>
 					<label for="productName">Product Name</label>
 					<div>
-						<form:input path="productName" placeholder="Enter product name" required="true"/>
+						<form:input path="productName" name="productName" onblur="productNameCheck();" placeholder="Enter product name" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productName" cssClass="text-danger" />
@@ -105,7 +124,7 @@ body {
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price"  placeholder="Enter price" title="Price can't be empty or must contain numeric values "
+						<form:input path="price" name="price" placeholder="Enter price" title="Price can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>

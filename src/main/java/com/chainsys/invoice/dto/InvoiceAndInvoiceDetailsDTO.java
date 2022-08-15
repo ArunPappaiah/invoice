@@ -1,7 +1,5 @@
 package com.chainsys.invoice.dto;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +23,5 @@ public class InvoiceAndInvoiceDetailsDTO {
 	public void setInvoiceDetails(Optional<InvoiceDetails> invoiceDetails2) {
 		this.invoiceDetails = invoiceDetails2;
 	}
+	
 }

@@ -3,26 +3,11 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Product</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-body {
-	background-image:
-		url("https://legal.thomsonreuters.com/blog/wp-content/uploads/sites/19/2020/10/AdobeStock_329598724-370x208.jpeg");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/updateproductform.css"%></style>
 <script type="text/javascript">
 function mult(value){
 	var x;
@@ -46,7 +31,7 @@ function mult(value){
 </script>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="updateproduct" method="post"
 				modelAttribute="updateproduct">

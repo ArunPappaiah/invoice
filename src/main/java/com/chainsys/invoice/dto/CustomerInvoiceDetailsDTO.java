@@ -11,7 +11,7 @@ import com.chainsys.invoice.model.Invoice;
 public class CustomerInvoiceDetailsDTO {
 	@Autowired
 	private Customer customer;
-	private List<Invoice> invoiceList = new ArrayList<Invoice>();
+	private List<Invoice> invoiceList = new ArrayList<>();
 	public Customer getCustomer() {
 		return customer;
 	}

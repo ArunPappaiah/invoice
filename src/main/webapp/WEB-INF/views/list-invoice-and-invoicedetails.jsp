@@ -3,30 +3,19 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>List Of Invoice And Invoice Details</title>
-<style type="text/css">
-body {
-	background-image:
-		url("https://cdn.99images.com/photos/wallpapers/3d-abstract/blue%20android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-wzdmi.jpg");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/listinvoiceandinvoicedetails.css"%></style>
 </head>
 <body>
-	<div id="root" align="center">
+	 <div id="root" class="center">
 		<div id="form">
 			<form:form action="getinvoiceandinvoicedetails" method="post"
 				modelAttribute="getinvoiceandinvoicedetails">
 				<h1>Invoice And Invoice Details</h1>
-				  <div>
+				<div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
 						<form:input type="text" path="invoiceNumber"/>
@@ -62,11 +51,10 @@ body {
 						<form:input path="totalAmount" />
 					</div>
 				</div>
-		
 		</form:form>
 	</div>
-	</div>
-	<div id="root" align="center">
+	</div> 
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="getinvoiceandinvoicedetails" method="post"
 				modelAttribute="invoicedetailslist">
@@ -103,10 +91,11 @@ body {
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/><!-- id="tot_amount" -->
+						<form:input path="amount" type="text" id="amount"  name="amount" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>
 		</form:form>
+		 <br><br><button onclick="window.print()">Print page</button>
 	</div>
 	</div>
 </body>

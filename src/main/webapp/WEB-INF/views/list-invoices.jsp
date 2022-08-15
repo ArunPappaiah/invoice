@@ -2,37 +2,40 @@
     pageEncoding="ISO-8859-1"%>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Invoices List</title>
+<style><%@include file="/WEB-INF/css/listinvoices.css"%></style>
 </head>
-<body bgcolor=gray>
+<body>
 	<div id="table root">
 	<table border=1>
+	<caption>Invoices List</caption>
 	<thead>
 		<tr>
-		<th bgcolor=silver>Invoice Number</th>
-		<th bgcolor=silver>Invoice Date</th>
-		<th bgcolor=silver>Customer Id</th>
-		<th bgcolor=silver>Product Id</th>
-		<th bgcolor=silver>Transportation Charge</th>
-		<th bgcolor=silver>Total Amount</th>
+		<th>Invoice Number</th>
+		<th>Invoice Date</th>
+		<th>Customer Id</th>
+		<th>Product Id</th>
+		<th>Transportation Charge</th>
+		<th>Total Amount</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="invoice" items="${allinvoices}">
 			<tr>
-			<td bgcolor=lightblue>${invoice.invoiceNumber}</td>
-			<td bgcolor=lightblue>${invoice.invoiceDate}</td>
-			<td bgcolor=lightblue>${invoice.customerId}</td>
-			<td bgcolor=lightblue>${invoice.productId}</td>
-			<td bgcolor=lightblue>${invoice.transportationCharges}</td>
-			<td bgcolor=lightblue>${invoice.totalAmount}</td>
+			<td>${invoice.invoiceNumber}</td>
+			<td>${invoice.invoiceDate}</td>
+			<td>${invoice.customerId}</td>
+			<td>${invoice.productId}</td>
+			<td>${invoice.transportationCharges}</td>
+			<td>${invoice.totalAmount}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 	</table>
+	 <br><br><button onclick="window.print()">Print page</button>
 	</div>
 </body>
 </html>

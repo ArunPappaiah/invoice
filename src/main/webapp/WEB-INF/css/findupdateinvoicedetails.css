@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://www.teahub.io/photos/full/26-266134_abstract-backgrounds-design-light-desktop-images-hd-best.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+}

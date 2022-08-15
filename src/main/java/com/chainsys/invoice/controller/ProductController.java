@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,11 +33,11 @@ public class ProductController {
 	}
 	
 	@PostMapping("/addproduct")
-	public String addProduct(@Valid @ModelAttribute("addproduct") Product pr,Errors errors) {
+	public String addProduct(@Valid @ModelAttribute("addproduct") Product addProduct,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-product-form";
 		}
-		productService.save(pr);
+		productService.save(addProduct);
 		return "redirect:/product/getallproducts";
 	}
 	
@@ -55,11 +54,11 @@ public class ProductController {
 	}
 	
 	@PostMapping("/updateproduct")
-	public String modifyProduct(@Valid @ModelAttribute("updateproduct") Product pr,Errors errors) {
+	public String modifyProduct(@Valid @ModelAttribute("updateproduct") Product updateProduct,Errors errors) {
 		if(errors.hasErrors()) {
 			return "update-product-form";
 		}
-		productService.save(pr);
+		productService.save(updateProduct);
 		return "redirect:/product/getallproducts";
 	}
 	
@@ -81,7 +80,6 @@ public class ProductController {
 	
 	@GetMapping("/getproductbyid")
 	public String getProductById(@RequestParam("productId") int id,Model model) {
-	//	public String getProductById(@PathVariable int id,Model model) {
 		Product pr = productService.findById(id);
 		model.addAttribute("getproduct",pr);
 		return "find-product-by-id"; // find-product-by-id

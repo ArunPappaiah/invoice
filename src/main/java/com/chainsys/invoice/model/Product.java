@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -38,16 +36,6 @@ public class Product {
 	@Column(name="DESCRIPTIONS")
 	@NotEmpty(message = "*Please enter description")
 	private String descriptions;
-	
-//	@OneToOne(mappedBy="invoice",fetch=FetchType.LAZY)
-/*	private Invoice invoice;
-	
-	public Invoice getInvoice() {
-		return invoice;
-	}
-	public void setInvoice(Invoice invoice) {
-		this.invoice = invoice;
-	}  */
 	
 	@OneToMany(mappedBy="productdetail",fetch=FetchType.LAZY)
 	private List<Invoice> invoice;

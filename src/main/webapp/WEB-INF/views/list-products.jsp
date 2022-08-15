@@ -2,33 +2,35 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Product Lists</title>
+<style><%@include file="/WEB-INF/css/listproducts.css"%></style>
 </head>
-<body bgcolor=gray>
+<body>
 	<div id="table root">
 	<table border=1>
+	<caption>Product Invoices List</caption>
 	<thead>
 		<tr>
-		<th bgcolor=silver>Product Id</th>
-		<th bgcolor=silver>Product Name</th>
-		<th bgcolor=silver>Category</th>
-		<th bgcolor=silver>Price</th>
-		<th bgcolor=silver>GST Rate</th>
-		<th bgcolor=silver>Description</th>
+		<th>Product Id</th>
+		<th>Product Name</th>
+		<th>Category</th>
+		<th>Price</th>
+		<th>GST Rate</th>
+		<th>Description</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="product" items="${allproducts}">
 			<tr>
-			<td bgcolor=lightblue>${product.productId}</td>
-			<td bgcolor=lightblue>${product.productName}</td>
-			<td bgcolor=lightblue>${product.categories}</td>
-			<td bgcolor=lightblue>${product.price}</td>
-			<td bgcolor=lightblue>${product.gstRate}</td>
-			<td bgcolor=lightblue>${product.descriptions}</td>
+			<td>${product.productId}</td>
+			<td>${product.productName}</td>
+			<td>${product.categories}</td>
+			<td>${product.price}</td>
+			<td>${product.gstRate}</td>
+			<td>${product.descriptions}</td>
 			</tr>
 		</c:forEach>
 	</tbody>

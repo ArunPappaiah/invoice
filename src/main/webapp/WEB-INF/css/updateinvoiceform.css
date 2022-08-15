@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+body {
+	background-image:
+		url("https://alto.co/wp-content/uploads/2019/05/alto-invoice-background.png");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+}

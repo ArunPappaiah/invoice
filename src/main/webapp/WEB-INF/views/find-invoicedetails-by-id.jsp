@@ -3,25 +3,14 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Invoice Details</title>
-<style type="text/css">
-body {
-	background-image:
-		url("https://i2.wp.com/files.123freevectors.com/wp-content/original/19530-light-blue-square-background.jpg?w=600");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/findinvoicedetailsbyid.css"%></style>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="getinvoicedetailsbyid" method="post"
 				modelAttribute="getinvoicedetails">
@@ -59,7 +48,7 @@ body {
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" /><!-- id="tot_amount" -->
+						<form:input path="amount" />
 					</div>
 				</div>
 		</form:form>

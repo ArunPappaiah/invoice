@@ -3,25 +3,14 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Invoice By Id</title>
-<style type="text/css">
-body {
-	background-image:
-		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKr0Kj1XrEzBJQk-6RuK8pTrltgS3w3MXDNQ&usqp=CAU");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/findinvoicebyid.css"%></style>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="getinvoicebyid" method="post"
 				modelAttribute="getinvoice">

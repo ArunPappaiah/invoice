@@ -1,6 +1,5 @@
 package com.chainsys.invoice.service;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +9,8 @@ import org.springframework.stereotype.Service;
 import com.chainsys.invoice.dao.CustomerRepository;
 import com.chainsys.invoice.dao.InvoiceRepository;
 import com.chainsys.invoice.dto.CustomerInvoiceDetailsDTO;
-import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Customer;
 import com.chainsys.invoice.model.Invoice;
-import com.chainsys.invoice.model.InvoiceDetails;
-import com.chainsys.invoice.model.Product;
 
 @Service
 public class CustomerService {
@@ -39,8 +35,7 @@ public class CustomerService {
 	}
 	
 	public List<Customer> findAllCustomers(){
-		List<Customer> crList = customerRepo.findAll();
-		return crList;
+		return customerRepo.findAll();
 	}
 	
 	public void deleteById(int id) {
@@ -54,7 +49,7 @@ public class CustomerService {
 		 List<Invoice> invoiceList = invoiceRepo.findByCustomerId(id);
 	        Iterator<Invoice> iterator = invoiceList.iterator();
 	        while(iterator.hasNext()) {
-	        	dto.addcustomerAndInvoiceList((Invoice)iterator.next());
+	        	dto.addcustomerAndInvoiceList(iterator.next());
 	        }
 	        return dto;
 	}

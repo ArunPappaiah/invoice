@@ -3,26 +3,11 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Invoice Details</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-body {
-	background-image:
-		url("https://wallpaperaccess.com/full/1567846.jpg");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/addinvoicedetails.css"%></style>
 <script type="text/javascript">
 function calculateAmount(val)
 { 
@@ -52,13 +37,37 @@ document.getElementById("amount").value = TPrice;
 
 }
 
+var productIdCheck = function() {
+	if(document.myForm.productId.value == ""){
+		if(alert("Product Id cannot be blank")){
+			document.myForm.productId.focus();
+		}
+		else
+			document.activeElement.blur();
+    }
+    else{
+        return false;
+    } 
+}
+var priceCheck = function() {
+	 if(document.myForm.price.value == ""){
+			if(alert("Value can't be empty")){
+				 document.myForm.price.focus();
+			}
+			else
+				document.activeElement.blur();
+		}
+  else{
+  	return false;
+  }
+} 
 </script>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center" >
 		<div id="form">
 			<form:form action="addinvoicedetails" method="post"
-				modelAttribute="addinvoicedetails">
+				modelAttribute="addinvoicedetails" name="myForm">
 				<h1>Adding Invoice Details Form</h1>
 				<div>
 					<label for="invoiceNumber">Invoice Number</label>
@@ -70,7 +79,7 @@ document.getElementById("amount").value = TPrice;
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" placeholder="Enter product id" required="true"/>
+						<form:input path="productId" name="productId" onblur="productIdCheck();" placeholder="Enter product id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
@@ -84,8 +93,8 @@ document.getElementById("amount").value = TPrice;
 				<div>
 					<label for="price">Price</label>
 					<div>
-						<form:input path="price" id="price" name="price" placeholder="Enter price" title="Value can't be empty or must contain numeric values "
-pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice()"/><!-- "calculateAmount(this.value)" -->
+						<form:input path="price" id="price" name="price" onblur="priceCheck();" placeholder="Enter price" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
@@ -99,7 +108,7 @@ pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice()"/><!-- "calcu
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount" type="text" id="amount"  name="amount" placeholder="Amount" title="Value can't be empty or must contain numeric values "
+						<form:input path="amount" type="text" id="amount" name="amount" placeholder="Amount" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>

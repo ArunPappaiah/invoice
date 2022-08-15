@@ -25,8 +25,7 @@ public class InvoiceDetailsService {
 	}
 	
 	public List<InvoiceDetails> findAllInvoicesDetails(){
-		List<InvoiceDetails> inDetailsList = invoiceDetailsRepo.findAll();
-		return inDetailsList;
+		return invoiceDetailsRepo.findAll();
 	}
 	
 	public void deleteById(String id) {

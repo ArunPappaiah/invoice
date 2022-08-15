@@ -1,10 +1,7 @@
 package com.chainsys.invoice.service;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +13,6 @@ import com.chainsys.invoice.dto.InvoiceAndInvoiceDetailsDTO;
 import com.chainsys.invoice.dto.InvoiceDetailsDTO;
 import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
-import com.chainsys.invoice.model.Product;
 
 @Service
 public class InvoiceService {
@@ -40,8 +36,7 @@ public class InvoiceService {
 	}
 	
 	public List<Invoice> findAllInvoices(){
-		List<Invoice> invoiceList = invoiceRepo.findAll();
-		return invoiceList;
+		return invoiceRepo.findAll();
 	}
 	
 	public void deleteById(String id) {
@@ -64,30 +59,7 @@ public class InvoiceService {
 		dto.setInvoice(invoice);
 		Optional<InvoiceDetails> invoiceDetails = invoiceDetailsRepo.findByInvoiceNumber(id);
 		dto.setInvoiceDetails(invoiceDetails);
-				
 		return dto;
 	} 
 	 
-	
-/*	public void selectId(String id) {
-		invoiceRepo.getNextInvoiceNumber(id);
-	}  */
-	
-	/*
-	 * public List<Invoice> findMaxInvoiceNumber(){ List<Invoice> maxInvoice =
-	 * invoiceRepo.findMaxInvoiceNumber(); return maxInvoice; }
-	 */
-	
-/*	public Optional<Invoice> getNextInvoiceNumber(String id) {
-		Invoice iv = new Invoice();
-		if(invoiceRepo.getNextInvoiceNumber(id)==null) {
-			iv.setInvoice_number("E-0000001");
-		}else {
-		    long id1 = Long.parseLong(iv.getInvoice_number().substring(2,iv.getInvoice_number().length()));
-		    id1++;
-		    iv.setInvoice_number("E-"+String.format("%07d",id1));
-		}
-		
-		return invoiceRepo.getNextInvoiceNumber(id);
-	}  */
 }

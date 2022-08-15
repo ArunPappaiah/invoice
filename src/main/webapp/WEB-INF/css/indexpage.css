@@ -1,0 +1,73 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://www.processmaker.com/wp-content/uploads/2021/03/20944159-scaled.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.my_text {
+	font-family: Times;
+	font-size: 25px;
+}
+*{
+	padding:0;
+	margin:0;	
+	box-sizing: border-box; 
+}
+.menu-bar{
+	background: rgb(0, 0, 194); /* 0,100,0 */
+	text-align:center;
+}
+.menu-bar ul{
+	display: inline-flex;
+	list-style:none;
+	color:#EE2111;
+}
+.menu-bar ul li{
+	width: 120px;
+	margin: 15px;
+	padding: 15px;
+}
+.menu-bar ul li a{
+	text-decoration: none;
+	color:#fff;
+}
+.active, .menu-bar ul li:hover{
+	background: #ff6600;
+	border-radius: 3px;
+}
+.menu-bar .fa{
+	margin-right: 8px;
+}
+.sub-menu-1{
+	display: none;
+}
+.menu-bar ul li:hover .sub-menu-1{
+	display: block;
+	position: absolute;
+	background:rgb(0, 153, 204);/*rgb(255, 0, 0)*/
+	margin-top: 15px;
+	margin-left: -15px;
+}
+.menu-bar ul li:hover .sub-menu-1 ul{
+	display: block;
+	margin: 10px;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li{
+	width: 150px;
+	padding: 10px;
+	border-bottom: 1px dotted #fff;
+	background: transparent;
+	border-radius: 0;
+	text-align: left;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+	border-bottom:  none;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li a:hover {
+	color: #b2ff00;
+}

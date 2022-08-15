@@ -2,33 +2,35 @@
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>List of Customers</title>
+<style><%@include file="/WEB-INF/css/listcustomers.css"%></style>
 </head>
-<body bgcolor=gray>
+<body>
 	<div id="table root">
 	<table border=1>
+	<caption>List of Customers</caption>
 	<thead>
 		<tr>
-		<th bgcolor=silver>Customer Id</th>
-		<th bgcolor=silver>Customer Name</th>
-		<th bgcolor=silver>Phone Number</th>
-		<th bgcolor=silver>Address</th>
-		<th bgcolor=silver>Email</th>
-		<th bgcolor=silver>City</th>
+		<th>Customer Id</th>
+		<th>Customer Name</th>
+		<th>Phone Number</th>
+		<th>Address</th>
+		<th>Email</th>
+		<th>City</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="customer" items="${allcustomers}">
 			<tr>
-			<td bgcolor=lightblue>${customer.customerId}</td>
-			<td bgcolor=lightblue>${customer.customerName}</td>
-			<td bgcolor=lightblue>${customer.phoneNumber}</td>
-			<td bgcolor=lightblue>${customer.address}</td>
-			<td bgcolor=lightblue>${customer.email}</td>
-			<td bgcolor=lightblue>${customer.city}</td>
+			<td>${customer.customerId}</td>
+			<td>${customer.customerName}</td>
+			<td>${customer.phoneNumber}</td>
+			<td>${customer.address}</td>
+			<td>${customer.email}</td>
+			<td>${customer.city}</td>
 			</tr>
 		</c:forEach>
 	</tbody>

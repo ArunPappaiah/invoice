@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+.center {
+  text-align: center;
+}
+th{
+	background-color: silver;
+}
+td{
+	background-color: lightblue; 
+}
+body{
+	background-color: gray;
+}
+caption {
+	font-size: 20px;
+	font-weight: bold;
+}

@@ -5,32 +5,75 @@
 <%@ page import="java.io.PrintWriter,java.sql.Connection,java.sql.DriverManager,java.sql.PreparedStatement,java.sql.ResultSet
 ,java.sql.Statement,com.chainsys.invoice.model.Invoice" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Invoice</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
+<style><%@include file="/WEB-INF/css/addinvoice.css"%></style>
+<script type="text/javascript">
+var customerIdCheck = function() {
+	if(document.myForm.customerId.value == ""){
+		
+		if(alert("Customer Id cannot be blank")){
+			document.myForm.customerId.focus();
+		}
+		else
+			document.activeElement.blur();
+        	
+    }
+    else{
+        return false;
+    } 
 }
-body {
-	background-image:
-		url("https://d11wkw82a69pyn.cloudfront.net/siteassets/images/efinance/canvas_06-mobile-digital-pay_low.jpg");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+
+var productIdCheck = function() {
+	if(document.myForm.productId.value == ""){
+		
+		if(alert("Product Id cannot be blank")){
+			document.myForm.productId.focus();
+		}
+		else
+			document.activeElement.blur();
+        	
+    }
+    else{
+        return false;
+    } 
 }
-</style>
+
+var transChargeCheck = function() {
+	 if(document.myForm.transportationCharges.value == ""){
+			if(alert("Value can't be empty")){
+				 document.myForm.transportationCharges.focus();
+			}
+			else
+				document.activeElement.blur();
+		}
+  else{
+  	return false;
+  }
+} 
+
+var priceCheck = function() {
+	 if(document.myForm.totalAmount.value == ""){
+			if(alert("Value can't be empty")){
+				 document.myForm.totalAmount.focus();
+			}
+			else
+				document.activeElement.blur();
+		}
+   else{
+   	return false;
+   }
+} 
+
+</script>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center">
 		<div id="form">
 			<form:form action="addinvoice" method="post"
-				modelAttribute="addinvoice">
+				modelAttribute="addinvoice" name="myForm">
 				<h1>Invoice Adding Form</h1>
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
@@ -48,7 +91,7 @@ body {
 				<div>
 					<label for="customerId">Customer Id</label>
 					<div>
-						<form:input path="customerId"  placeholder="Enter customer id" required="true"/>
+						<form:input path="customerId" name="customerId" onblur="customerIdCheck();" placeholder="Enter customer id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="customerId" cssClass="text-danger" />
@@ -61,14 +104,14 @@ body {
                                     label="${product.productId}" />
                             </c:forEach>
                         </form:select> --%>
-                        <form:input path="productId" placeholder="Enter product id" required="true"/>
+                        <form:input path="productId" name="productId" onblur="productIdCheck();" placeholder="Enter product id" required="true"/>
                     </div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="transportationCharges">Transportation Charge</label>
 					<div>
-						<form:input path="transportationCharges"  placeholder="Enter trasportation charge" title="Value can't be empty or must contain numeric values "
+						<form:input path="transportationCharges" name="transportationCharges" onblur="transChargeCheck();" placeholder="Enter trasportation charge" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>
@@ -76,7 +119,7 @@ pattern="^\d+(,\d{1,2})?$" required="true"/>
 				<div>
 					<label for="totalAmount">Total Amount</label>
 					<div>
-						<form:input path="totalAmount"  placeholder="Total amount" title="Value can't be empty or must contain numeric values "
+						<form:input path="totalAmount" name="totalAmount" onblur="priceCheck();" placeholder="Total amount" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>

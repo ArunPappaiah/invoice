@@ -3,7 +3,7 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Invoice And Details</title>
@@ -82,7 +82,7 @@
 				<div>
 					<label for="amount">Amount</label>
 					<div>
-						<form:input path="amount"/><!-- id="tot_amount" -->
+						<form:input path="amount"/>
 					</div>
 				</div>
 		<div>

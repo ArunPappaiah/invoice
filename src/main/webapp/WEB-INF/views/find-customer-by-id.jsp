@@ -3,25 +3,14 @@
      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Customer By Id</title>
-<style type="text/css">
-	body {
-	background-image:
-		url("https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=2000");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style> <%@include file="/WEB-INF/css/findcustomerbyid.css"%> </style>
 </head>
 <body>
-	<div id="root" align="center">
+	<div id="root" class="center" >
 		<div id="form">
 			<form:form action="getcustomerbyid" method="get"
 				modelAttribute="getcustomer">

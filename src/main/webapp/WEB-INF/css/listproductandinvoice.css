@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://cdn.99images.com/photos/wallpapers/creative-graphics/pastel-blue%20android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-mtx2z.png");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+th{
+	background-color: silver;
+}
+td{
+	background-color: lightblue; 
+}
+caption {
+	font-size: 20px;
+	font-weight: bold;
+}
+.center {
+  text-align: center;
+}

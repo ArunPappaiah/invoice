@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.invoice.model.Invoice;
 import com.chainsys.invoice.model.InvoiceDetails;
-import com.chainsys.invoice.model.Product;
 import com.chainsys.invoice.service.InvoiceDetailsService;
 
 @Controller
@@ -47,14 +45,11 @@ public class InvoiceDetailsController {
 	}
 	
 	@PostMapping("/addinvoicedetails")
-	public String addInvoiceDetails( @Valid @ModelAttribute("addinvoicedetails")InvoiceDetails ivDetails,Errors errors) {
+	public String addInvoiceDetails( @Valid @ModelAttribute("addinvoicedetails")InvoiceDetails addInvoiceDetail,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-invoicedetails-form";
 		}
-		Product product = new Product();
-		//ivDetails.setPrice(product.getPrice());
-	   // ivDetails.setPrice(product.getPrice());
-		invoiceDetailService.save(ivDetails);
+		invoiceDetailService.save(addInvoiceDetail);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	
@@ -71,11 +66,11 @@ public class InvoiceDetailsController {
 	}
 	
 	@PostMapping("/updateinvoicedetails")
-	public String modifyInvoiceDetails(@Valid @ModelAttribute("updateinvoicedetails") InvoiceDetails ivDetails,Errors errors) {
+	public String modifyInvoiceDetails(@Valid @ModelAttribute("updateinvoicedetails") InvoiceDetails updateInvoiceDetail,Errors errors) {
 		if(errors.hasErrors()) {
 			return "update-invoice-details-form";
 		}
-		invoiceDetailService.save(ivDetails);
+		invoiceDetailService.save(updateInvoiceDetail);
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	

@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+body {
+	background-image:
+		url("https://previews.123rf.com/images/mettus/mettus1303/mettus130303963/18629743-abstract-watercolor-background-paper-design-of-bright-color-splashes-modern-art.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+}

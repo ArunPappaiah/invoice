@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+	body {
+	background-image:
+		url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGRlc2lnbnxlbnwwfHwwfHw%3D&w=1000&q=80");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-ukIYHAGHQVAMpjN6iX5QAFDVZddQ3-RT2IWl9cKBCOm5fctI3NufjPR240MypNwYxuk&usqp=CAU");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+}

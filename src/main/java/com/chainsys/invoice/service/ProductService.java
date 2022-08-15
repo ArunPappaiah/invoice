@@ -31,8 +31,7 @@ public class ProductService {
 	}
 	
 	public List<Product> findAllProducts(){
-		List<Product> prList = productRepo.findAll();
-		return prList;
+		return productRepo.findAll();
 	}
 	
 	public void deleteById(int id) {
@@ -46,7 +45,7 @@ public class ProductService {
 		List<Invoice> invoiceList = invoiceRepo.findByProductId(id);
 		Iterator<Invoice> iterator = invoiceList.iterator();
         while(iterator.hasNext()) {
-        	dto.addproductAndInvoiceList((Invoice)iterator.next());
+        	dto.addproductAndInvoiceList(iterator.next());
         }
 		return dto;
 	}

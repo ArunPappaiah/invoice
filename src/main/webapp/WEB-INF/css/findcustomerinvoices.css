@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+	body {
+	background-image:
+		url("https://www.pixelstalk.net/wp-content/uploads/images6/Pastel-Blue-Wallpaper-Aesthetic-HD-324x235.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+}

@@ -1,7 +1,5 @@
 package com.chainsys.invoice.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.invoice.dto.InvoiceAndInvoiceDetailsDTO;
@@ -60,11 +57,11 @@ public class InvoiceController {
 	}
 	
 	@PostMapping("/updateinvoice")
-	public String modifyInvoice(@Valid @ModelAttribute("updateinvoice") Invoice iv,Errors errors) {
+	public String modifyInvoice(@Valid @ModelAttribute("updateinvoice") Invoice updateInvoices,Errors errors) {
 		if(errors.hasErrors()) {
 			return "update-invoice-form";
 		}
-		invoiceService.save(iv);
+		invoiceService.save(updateInvoices);
 		return "redirect:/invoice/getallinvoices";
 	}
 	
@@ -95,11 +92,11 @@ public class InvoiceController {
 	}
 	
 	@PostMapping("/addinvoice")
-	public String addInvoice(@Valid @ModelAttribute("addinvoice")Invoice iv,Errors errors) {
+	public String addInvoice(@Valid @ModelAttribute("addinvoice")Invoice addInvoice,Errors errors) {
 		if(errors.hasErrors()) {
 			return "add-invoice-form";
 		}
-		invoiceService.save(iv);
+		invoiceService.save(addInvoice);
 		return "redirect:/invoice/getallinvoices";
 	}
 	
@@ -140,31 +137,26 @@ public class InvoiceController {
  
     @GetMapping("/updateinvoiceanddetailsform")
 	public String findInvoiceDetailsForm(@RequestParam("id")String id,Model model) {
-    	//Optional<InvoiceDetailsDTO> invoice =invoiceService.findById(id);
-		/* Optional<Invoice> invoice =invoiceService.findById(id);
-		model.addAttribute("updateinvoiceanddetails",invoice);
-		Optional<InvoiceDetails> invoiceDetails = invoiceService.findById1(id);
-		model.addAttribute("updateinvoiceanddetails",invoiceDetails); */
 		return "update-invoice-and-details-form";
 	}
     
     @GetMapping("/updateinvoiceanddetails")
-   	public String updateInvoiceAndDetails(@ModelAttribute("updateinvoiceanddetails")Invoice invoice,InvoiceDetails invoiceDetails){
+   	public String updateInvoiceAndDetails(@ModelAttribute("updateinvoiceanddetails")Invoice updateInvoice,InvoiceDetails updateInvoiceDetails){
     	InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
-		dto.setInvoiceNumber(invoice.getInvoiceNumber());
-		dto.setInvoiceDate(invoice.getInvoiceDate());
-		dto.setCustomerId(invoice.getCustomerId());
-		dto.setTransportationCharges(invoice.getTransportationCharges());
-		dto.setTotalAmount(invoice.getTotalAmount());
-		dto.setInvoice(invoice);
+		dto.setInvoiceNumber(updateInvoice.getInvoiceNumber());
+		dto.setInvoiceDate(updateInvoice.getInvoiceDate());
+		dto.setCustomerId(updateInvoice.getCustomerId());
+		dto.setTransportationCharges(updateInvoice.getTransportationCharges());
+		dto.setTotalAmount(updateInvoice.getTotalAmount());
+		dto.setInvoice(updateInvoice);
 		
-		dto.setInvoiceNumber1(invoiceDetails.getInvoiceNumber());
-		dto.setProductId(invoiceDetails.getProductId());
-		dto.setQuantity(invoiceDetails.getQuantity());
-		dto.setPrice(invoiceDetails.getPrice());
-		dto.setGst(invoiceDetails.getGst());
-		dto.setAmount(invoiceDetails.getAmount());
-		dto.addInvoiceDetails(invoiceDetails);
+		dto.setInvoiceNumber1(updateInvoiceDetails.getInvoiceNumber());
+		dto.setProductId(updateInvoiceDetails.getProductId());
+		dto.setQuantity(updateInvoiceDetails.getQuantity());
+		dto.setPrice(updateInvoiceDetails.getPrice());
+		dto.setGst(updateInvoiceDetails.getGst());
+		dto.setAmount(updateInvoiceDetails.getAmount());
+		dto.addInvoiceDetails(updateInvoiceDetails);
 		 invoiceService.addInvoiceAndInvoiceDetails(dto);
 		return "Updated successfully!!";
     }
@@ -182,19 +174,4 @@ public class InvoiceController {
     	return "list-invoice-and-invoicedetails";
     }
     
-	/*@PostMapping("/getmaxinvoice")
-	public String getMaxInvoiceNum(Model model) {
-		Invoice iv = new Invoice();
-		List<Invoice> ivList = invoiceService.findAllInvoices();
-		if(ivList==null) {
-			iv.setInvoice_number("E-00000001");
-		}else {
-			    long id1 = Long.parseLong(iv.getInvoice_number().substring(2,iv.getInvoice_number().length()));
-			    id1++;
-			    iv.setInvoice_number("E-"+String.format("%07d",id1));
-			}
-			// return invoiceService.findMaxInvoiceNumber(id1);
-		model.addAttribute("getmaxinvoice",ivList);
-		return "list-max-invoices";
-	}  */
 }

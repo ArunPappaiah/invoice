@@ -1,25 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Customer</title>
-<style type="text/css">
-	body {
-	background-image:
-		url("https://static.vecteezy.com/system/resources/previews/001/884/518/large_2x/green-watercolor-abstract-background-texture-illustration-texture-for-design-free-photo.jpg");
-	 height: 768px;
-	width: 1366px; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/findupdatecustomer.css"%></style>
 </head>
 <body>
-	<div align="center">
+	<div class="center">
 	 <form action="updateform" >
 	 	<h1>Find Customer Form</h1>
                 <div>

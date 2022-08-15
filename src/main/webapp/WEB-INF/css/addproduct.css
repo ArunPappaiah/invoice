@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+body {
+	background-image:
+		url("https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-shopping-mall-supermarket-selection-merchandise-poster-background-material-image_133225.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.center {
+  text-align: center;
+} 
