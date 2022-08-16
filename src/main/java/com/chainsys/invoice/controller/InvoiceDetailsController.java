@@ -78,7 +78,7 @@ public class InvoiceDetailsController {
 		return "redirect:/invoicedetails/getallinvoicedetails";
 	}
 	
-	@RequestMapping("/deleteform")
+	@GetMapping("/deleteform")
 	public String deleteForm() {
 		return "delete-invoice-details";
 	}

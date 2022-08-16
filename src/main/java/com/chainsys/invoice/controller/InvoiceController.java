@@ -69,7 +69,7 @@ public class InvoiceController {
 		return "redirect:/invoice/getallinvoices";
 	}
 	
-	@RequestMapping("/deleteform")
+	@GetMapping("/deleteform")
 	public String deleteForm() {
 		return "delete-invoice";
 	}

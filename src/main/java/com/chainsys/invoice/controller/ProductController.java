@@ -62,7 +62,7 @@ public class ProductController {
 		return "redirect:/product/getallproducts";
 	}
 	
-	@RequestMapping("/deleteform")
+	@GetMapping("/deleteform")
 	public String deleteForm() {
 		return "delete-product";
 	}
