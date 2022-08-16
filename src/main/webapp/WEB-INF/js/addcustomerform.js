@@ -1,7 +1,7 @@
 /**
  * 
  */
-var customerIdCheck = function() {
+const customerIdCheck = function() {
 	if(document.myForm.customerId.value == ""){
 		
 		if(alert("Customer Id cannot be blank")){
@@ -15,8 +15,8 @@ var customerIdCheck = function() {
         return false;
     } 
 }
- var userNameCheck = function() {
-	 var nameRegex = new RegExp("^[a-zA-Z]+$");
+ const userNameCheck = function() {
+	 const nameRegex = new RegExp("^[a-zA-Z]+$");
 	 if(!document.myForm.customerName.value.match(nameRegex)){
 			if(alert("Name can't be empty or must contain only alphabets")){ 
 				 document.myForm.customerName.focus();
@@ -30,8 +30,8 @@ var customerIdCheck = function() {
    
 }
 
- var phoneNumberCheck = function() {
-	 var phoneRg = new RegExp("[1-9]{1}[0-9]{9}");
+ const phoneNumberCheck = function() {
+	 const phoneRg = new RegExp("[1-9]{1}[0-9]{9}");
 	 if(!document.myForm.phoneNumber.value.match(phoneRg)){
 			if(alert("Phone Number not valid")){
 				 document.myForm.phoneNumber.focus();
@@ -44,7 +44,7 @@ var customerIdCheck = function() {
     }
 } 
  
- var addressCheck = function() {
+ const addressCheck = function() {
 	 if(document.myForm.address.value == ""){
 			if(alert("Address cannot be blank")){ 
 				 document.myForm.address.focus();
@@ -57,8 +57,8 @@ var customerIdCheck = function() {
 	    }
  }
 
-var emailNameCheck = function() {
-	var rg = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
+const emailNameCheck = function() {
+	const rg = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
 	if(!document.myForm.email.value.match(rg)){
 		if(alert("Email not valid")){
 			document.myForm.email.focus();
@@ -71,8 +71,8 @@ var emailNameCheck = function() {
     }
 }
 
-var cityNameCheck = function() {
-	var cityRegex = new RegExp("^[a-zA-Z]+$");
+const cityNameCheck = function() {
+	const cityRegex = new RegExp("^[a-zA-Z]+$");
 	if(!document.myForm.city.value.match(cityRegex)){
 		if(alert("City name can't be empty or must contain only alphabets")){
 			 document.myForm.city.focus();

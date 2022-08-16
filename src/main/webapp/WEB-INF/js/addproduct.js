@@ -2,7 +2,7 @@
  * 
  */
 	function calc(value){
-		var x;
+		let x;
 		if(value=="food"){
 			x=18;	
 			}else if(value=="clothes"){
@@ -23,8 +23,8 @@
 	}
 
 	function price(){
-		var productId = document.getElementById("productId").value;
-		var price;
+		let productId = document.getElementById("productId").value;
+		let price;
 		if(productId==50){
 			price=3000;
 		}else if(productId==51){
@@ -37,7 +37,7 @@
 		document.getElementById('price').value=price;
 	}
 	
-	var productIdCheck = function() {
+	const productIdCheck = function() {
 		if(document.myForm.productId.value == ""){
 			if(alert("Product Id cannot be blank")){
 				document.myForm.productId.focus();
@@ -50,7 +50,7 @@
 	    } 
 	}
 	
-	var productNameCheck = function() {
+	const productNameCheck = function() {
 		if(document.myForm.productName.value == ""){
 			if(alert("Product Name cannot be blank")){
 				document.myForm.productName.focus();
@@ -63,7 +63,7 @@
 	    } 
 	}
 	
-	var priceCheck = function() {
+	const priceCheck = function() {
 		 if(document.myForm.price.value == ""){
 				if(alert("Price can't be empty")){
 					 document.myForm.price.focus();

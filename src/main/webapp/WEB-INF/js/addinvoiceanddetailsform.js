@@ -2,20 +2,20 @@
  * 
  */
 function updatePrice() {
-	var qty = document.getElementById("quantity").value;
-	var exPrice = document.getElementById("price").value;
-	var gstPrice = document.getElementById("gst").value;
+	let qty = document.getElementById("quantity").value;
+	let exPrice = document.getElementById("price").value;
+	let gstPrice = document.getElementById("gst").value;
 	
-	var productId = document.getElementById("productId").value;
-	var ivNo = document.getElementById("invoiceNumber").value;
+	let productId = document.getElementById("productId").value;
+	let ivNo = document.getElementById("invoiceNumber").value;
 	
-	var transCharge = document.getElementById("transportationCharges").value;
-	var totalAmount = document.getElementById("totalAmount").value;
+	let transCharge = document.getElementById("transportationCharges").value;
+	// let totalAmount = document.getElementById("totalAmount").value;
 	
-	var amt = exPrice*qty;
+	let amt = exPrice*qty;
 	// var TPrice = parseInt(gstPrice) + parseInt(qty)*parseInt(exPrice);
-	var TPrice = (amt*gstPrice/100)+amt;
-	var total = parseInt(TPrice)+parseInt(transCharge);
+	let TPrice = (amt*gstPrice/100)+amt;
+	let total = parseInt(TPrice)+parseInt(transCharge);
 	
 	document.getElementById("quantity").value = qty;
 	document.getElementById("amount").value = TPrice;
@@ -25,8 +25,8 @@ function updatePrice() {
 	document.getElementById("invoiceNumber1").value = ivNo;
 	
 	//----------------
-	var productId = document.getElementById("productId").value;
-	var price;
+	// let productId = document.getElementById("productId").value;
+	let price;
 	if(productId==50){
 		price=3000;
 	}else if(productId==51){
@@ -55,7 +55,7 @@ function updatePrice() {
 	document.getElementById("gst").value = gstPrice;
 } 
 
-var customerIdCheck = function() {
+const customerIdCheck = function() {
 	if(document.myForm.customerId.value == ""){
 		
 		if(alert("Customer Id cannot be blank")){
@@ -70,7 +70,7 @@ var customerIdCheck = function() {
     } 
 }
 
-var productIdCheck = function() {
+const productIdCheck = function() {
 	if(document.myForm.productId.value == ""){
 		if(alert("Product Id cannot be blank")){
 			document.myForm.productId.focus();
@@ -83,7 +83,7 @@ var productIdCheck = function() {
     } 
 }
 
-var transChargeCheck = function() {
+const transChargeCheck = function() {
 	 if(document.myForm.transportationCharges.value == ""){
 			if(alert("Value can't be empty")){
 				 document.myForm.transportationCharges.focus();

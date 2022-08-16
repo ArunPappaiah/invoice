@@ -67,7 +67,7 @@ public class ProductController {
 		return "delete-product";
 	}
 	
-	@RequestMapping("/deleteproduct")
+	@GetMapping("/deleteproduct")
 	public String deleteProduct(@RequestParam("product_id") int id) {
 		productService.deleteById(id);
 		return "redirect:/product/getallproducts";
