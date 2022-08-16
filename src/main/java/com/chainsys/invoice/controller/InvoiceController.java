@@ -139,32 +139,6 @@ public class InvoiceController {
 		return "find-update-invoice-and-details";
 	}
  
-    @GetMapping("/updateinvoiceanddetailsform")
-	public String findInvoiceDetailsForm(@RequestParam("id")String id,Model model) {
-		return "update-invoice-and-details-form";
-	}
-    
-    @GetMapping("/updateinvoiceanddetails")
-   	public String updateInvoiceAndDetails(@ModelAttribute("updateinvoiceanddetails")Invoice updateInvoice,InvoiceDetails updateInvoiceDetails){
-    	InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
-		dto.setInvoiceNumber(updateInvoice.getInvoiceNumber());
-		dto.setInvoiceDate(updateInvoice.getInvoiceDate());
-		dto.setCustomerId(updateInvoice.getCustomerId());
-		dto.setTransportationCharges(updateInvoice.getTransportationCharges());
-		dto.setTotalAmount(updateInvoice.getTotalAmount());
-		dto.setInvoice(updateInvoice);
-		
-		dto.setInvoiceNumber1(updateInvoiceDetails.getInvoiceNumber());
-		dto.setProductId(updateInvoiceDetails.getProductId());
-		dto.setQuantity(updateInvoiceDetails.getQuantity());
-		dto.setPrice(updateInvoiceDetails.getPrice());
-		dto.setGst(updateInvoiceDetails.getGst());
-		dto.setAmount(updateInvoiceDetails.getAmount());
-		dto.addInvoiceDetails(updateInvoiceDetails);
-		 invoiceService.addInvoiceAndInvoiceDetails(dto);
-		return "Updated successfully!!";
-    }
-    
     @GetMapping("/getinvoiceanddetailsform")
 	public String findCustomerInvoicesForm() {
 		return "find-invoice-and-details";
