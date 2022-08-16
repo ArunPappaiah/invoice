@@ -8,32 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Update Invoice Details</title>
 <style><%@include file="/WEB-INF/css/updateinvoicedetailsform.css"%></style>
-<script type="text/javascript">
-var productIdCheck = function() {
-	if(document.myForm.productId.value == ""){
-		if(alert("Product Id cannot be blank")){
-			document.myForm.productId.focus();
-		}
-		else
-			document.activeElement.blur();
-    }
-    else{
-        return false;
-    } 
-}
-var priceCheck = function() {
-	 if(document.myForm.price.value == ""){
-			if(alert("Value can't be empty")){
-				 document.myForm.price.focus();
-			}
-			else
-				document.activeElement.blur();
-		}
-  else{
-  	return false;
-  }
-} 
-</script>
+<script><%@include file="/WEB-INF/js/updateinvoicedetailsform.js"%></script>
 </head>
 <body>
 	<div id="registration-form" class="center">
