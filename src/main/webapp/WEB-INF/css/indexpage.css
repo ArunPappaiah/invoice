@@ -9,10 +9,10 @@ body {
 	background-size: cover;
 	position: relative;
 }
-.my_text {
+/* .my_text {
 	font-family: Times;
 	font-size: 25px;
-}
+} */
 *{
 	padding:0;
 	margin:0;	

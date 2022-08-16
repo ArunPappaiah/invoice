@@ -88,8 +88,8 @@
 </script>
 </head>
 <body>
-	<div id="root" class="center" >
-		<div id="form">
+	<div id="registration-form" class="center" >
+		<div id="form" class='fieldset'>
 			<form:form action="addproduct" method="post"
 				modelAttribute="addproduct" id="myform" name="myForm">
 				<h1>Add Product</h1>

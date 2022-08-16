@@ -64,9 +64,11 @@ function updatePrice() {
 	if(productId==50){
 		price=3000;
 	}else if(productId==51){
-		price=5000;
+		price=20000;
 	}else if(productId==52){
-		price=7000;
+		price=500;
+	}else if(productId==53){
+		price=1000;
 	}else{
 		price=2000;
 	}
@@ -79,6 +81,8 @@ function updatePrice() {
 		gstPrice=28;
 	}else if(productId==52){
 		gstPrice=12;
+	}else if(productId==53){
+		gstPrice=5;
 	}else{
 		gstPrice=18;
 	}
@@ -129,9 +133,10 @@ var transChargeCheck = function() {
 
 </head>
 <body>
-	<div id="root" class="center" >
+	<div id="root" class="container" >
 		<div id="form">
 			<form:form action="transtest" method="get" modelAttribute="addinvoiceanddetails" name="myForm">
+			<h1>Invoice Form</h1>
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
 					<div>
@@ -206,7 +211,7 @@ pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice(this.form)"/><!
 				</div>
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
-					<label for="gst">GST</label>
+					<label for="gst">GST%</label>
 					<div>
 						<form:input path="gst" type="text" id="gst" name="gst" required="true" onchange="updatePrice()"/>
 					</div>

@@ -8,12 +8,69 @@
 <meta charset="ISO-8859-1">
 <title>Update Invoice</title>
 <style><%@include file="/WEB-INF/css/updateinvoiceform.css"%></style>
+<script type="text/javascript">
+var customerIdCheck = function() {
+	if(document.myForm.customerId.value == ""){
+		
+		if(alert("Customer Id cannot be blank")){
+			document.myForm.customerId.focus();
+		}
+		else
+			document.activeElement.blur();
+        	
+    }
+    else{
+        return false;
+    } 
+}
+
+var productIdCheck = function() {
+	if(document.myForm.productId.value == ""){
+		
+		if(alert("Product Id cannot be blank")){
+			document.myForm.productId.focus();
+		}
+		else
+			document.activeElement.blur();
+        	
+    }
+    else{
+        return false;
+    } 
+}
+
+var transChargeCheck = function() {
+	 if(document.myForm.transportationCharges.value == ""){
+			if(alert("Value can't be empty")){
+				 document.myForm.transportationCharges.focus();
+			}
+			else
+				document.activeElement.blur();
+		}
+  else{
+  	return false;
+  }
+} 
+
+var priceCheck = function() {
+	 if(document.myForm.totalAmount.value == ""){
+			if(alert("Value can't be empty")){
+				 document.myForm.totalAmount.focus();
+			}
+			else
+				document.activeElement.blur();
+		}
+   else{
+   	return false;
+   }
+} 
+</script>
 </head>
 <body>
-	<div id="root" class="center">
-		<div id="form">
+	<div id="registration-form" class="center">
+		<div id="form" class='fieldset'>
 			<form:form action="updateinvoice" method="post"
-				modelAttribute="updateinvoice">
+				modelAttribute="updateinvoice" name="myForm">
 				<h1>Invoice Updating Form</h1>
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
@@ -31,21 +88,21 @@
 				<div>
 					<label for="customerId">Customer Id</label>
 					<div>
-						<form:input path="customerId"  placeholder="Enter customer id" required="true"/>
+						<form:input path="customerId" name="customerId" onblur="customerIdCheck();" placeholder="Enter customer id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="customerId" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" placeholder="Enter product id" required="true"/>
+						<form:input path="productId" name="productId" onblur="productIdCheck();" placeholder="Enter product id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="transportationCharges">Transportation Charge</label>
 					<div>
-						<form:input path="transportationCharges"  placeholder="Enter trasportation charge" title="Value can't be empty or must contain numeric values "
+						<form:input path="transportationCharges" name="transportationCharges" onblur="transChargeCheck();" placeholder="Enter trasportation charge" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>
@@ -53,7 +110,7 @@ pattern="^\d+(,\d{1,2})?$" required="true"/>
 				<div>
 					<label for="totalAmount">Total Amount</label>
 					<div>
-						<form:input path="totalAmount" placeholder="Total amount" title="Value can't be empty or must contain numeric values "
+						<form:input path="totalAmount" name="totalAmount" onblur="priceCheck();" placeholder="Total amount" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>

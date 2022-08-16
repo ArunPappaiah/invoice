@@ -64,8 +64,8 @@ var priceCheck = function() {
 </script>
 </head>
 <body>
-	<div id="root" class="center" >
-		<div id="form">
+	<div id="registration-form" class="center" >
+		<div id="form" class='fieldset'>
 			<form:form action="addinvoicedetails" method="post"
 				modelAttribute="addinvoicedetails" name="myForm">
 				<h1>Adding Invoice Details Form</h1>

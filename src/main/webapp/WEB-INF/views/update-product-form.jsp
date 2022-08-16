@@ -28,25 +28,51 @@ function mult(value){
 		}
 	document.getElementById('out2x').value=x;
 }
+
+var productIdCheck = function() {
+	if(document.myForm.productId.value == ""){
+		if(alert("Product Id cannot be blank")){
+			document.myForm.productId.focus();
+		}
+		else
+			document.activeElement.blur();
+    }
+    else{
+        return false;
+    } 
+}
+
+var productNameCheck = function() {
+	if(document.myForm.productName.value == ""){
+		if(alert("Product Name cannot be blank")){
+			document.myForm.productName.focus();
+		}
+		else
+			document.activeElement.blur();
+    }
+    else{
+        return false;
+    } 
+}
 </script>
 </head>
 <body>
-	<div id="root" class="center">
-		<div id="form">
+	<div id="registration-form" class="center">
+		<div id="form" class='fieldset'>
 			<form:form action="updateproduct" method="post"
-				modelAttribute="updateproduct">
+				modelAttribute="updateproduct" name="myForm">
 				<h1>Update Product Form</h1>
 				<div>
 					<label for="productId">Product Id</label>
 					<div>
-						<form:input path="productId" placeholder="Enter product id" required="true"/>
+						<form:input path="productId" name="productId" onblur="productIdCheck();" placeholder="Enter product id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="productName">Product Name</label>
 					<div>
-						<form:input path="productName" placeholder="Enter product name" required="true"/>
+						<form:input path="productName" name="productName" onblur="productNameCheck();" placeholder="Enter product name" required="true"/>
 					</div>
 				</div>
 				<form:errors path="productName" cssClass="text-danger" />
