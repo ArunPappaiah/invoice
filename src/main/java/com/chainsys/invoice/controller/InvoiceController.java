@@ -39,8 +39,12 @@ public class InvoiceController {
 	
 	@GetMapping("/getinvoicebyid")
 	public String getInvoiceById(@RequestParam("id") String id,Model model) {
+		try {
 		Optional<Invoice> iv = invoiceService.findById(id);
 		model.addAttribute("getinvoice",iv);
+		}catch(Exception e) {
+			e.getMessage();
+		}
 		return "find-invoice-by-id";
 	}
 	

@@ -8,7 +8,7 @@
 <title>Invoices List</title>
 <style><%@include file="/WEB-INF/css/listinvoices.css"%></style>
 </head>
-<body>
+<body class="center">
 	<div id="table root">
 	<table border=1>
 	<caption>Invoices List</caption>

@@ -31,8 +31,12 @@ public class CustomerController {
 	
 	@GetMapping("/getcustomerbyid")
 	public String getCustomerById(@RequestParam("id")int id ,Model model) {
+		try {
 		Customer cr = customerService.findById(id);
 		model.addAttribute("getcustomer",cr);
+		}catch(Exception e) {
+			e.getMessage();
+		}
 		return "find-customer-by-id";
 	}
 	

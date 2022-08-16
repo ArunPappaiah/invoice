@@ -80,9 +80,13 @@ public class ProductController {
 	
 	@GetMapping("/getproductbyid")
 	public String getProductById(@RequestParam("productId") int id,Model model) {
+		try {
 		Product pr = productService.findById(id);
 		model.addAttribute("getproduct",pr);
-		return "find-product-by-id"; // find-product-by-id
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return "find-product-by-id";
 	}
 	
 	@GetMapping("/getallproducts")

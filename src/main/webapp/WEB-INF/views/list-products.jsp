@@ -8,7 +8,7 @@
 <title>Product Lists</title>
 <style><%@include file="/WEB-INF/css/listproducts.css"%></style>
 </head>
-<body>
+<body class="center">
 	<div id="table root">
 	<table border=1>
 	<caption>Product Invoices List</caption>

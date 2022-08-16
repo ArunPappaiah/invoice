@@ -8,7 +8,7 @@
 <title>List of Customers</title>
 <style><%@include file="/WEB-INF/css/listcustomers.css"%></style>
 </head>
-<body>
+<body class="center">
 	<div id="table root">
 	<table border=1>
 	<caption>List of Customers</caption>
