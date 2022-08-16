@@ -1,7 +1,7 @@
 /**
  * 
  */
-var customerIdCheck = function() {
+const customerIdCheck = function() {
 	if(document.myForm.customerId.value == ""){
 		
 		if(alert("Customer Id cannot be blank")){
@@ -16,7 +16,7 @@ var customerIdCheck = function() {
     } 
 }
 
-var productIdCheck = function() {
+const productIdCheck = function() {
 	if(document.myForm.productId.value == ""){
 		
 		if(alert("Product Id cannot be blank")){
@@ -31,7 +31,7 @@ var productIdCheck = function() {
     } 
 }
 
-var transChargeCheck = function() {
+const transChargeCheck = function() {
 	 if(document.myForm.transportationCharges.value == ""){
 			if(alert("Value can't be empty")){
 				 document.myForm.transportationCharges.focus();
@@ -44,7 +44,7 @@ var transChargeCheck = function() {
   }
 } 
 
-var priceCheck = function() {
+const priceCheck = function() {
 	 if(document.myForm.totalAmount.value == ""){
 			if(alert("Value can't be empty")){
 				 document.myForm.totalAmount.focus();
