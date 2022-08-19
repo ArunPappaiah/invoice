@@ -25,6 +25,8 @@ public class InvoiceDetailsController {
 	@Autowired
 	InvoiceDetailsService invoiceDetailService;
 	
+	public static final String LISTINVOICEDETAILS = "redirect:/invoicedetails/getallinvoicedetails";
+	
 	@GetMapping("/findinvoicedetailsform")
 	public String findInvoiceForm() {
 		return "find-invoice-details-form";
@@ -54,7 +56,7 @@ public class InvoiceDetailsController {
 			return "add-invoicedetails-form";
 		}
 		invoiceDetailService.save(addInvoiceDetail);
-		return "redirect:/invoicedetails/getallinvoicedetails";
+		return LISTINVOICEDETAILS;
 	}
 	
 	@GetMapping("/updatemainform")
@@ -75,7 +77,7 @@ public class InvoiceDetailsController {
 			return "update-invoice-details-form";
 		}
 		invoiceDetailService.save(updateInvoiceDetail);
-		return "redirect:/invoicedetails/getallinvoicedetails";
+		return LISTINVOICEDETAILS;
 	}
 	
 	@GetMapping("/deleteform")
@@ -86,7 +88,7 @@ public class InvoiceDetailsController {
 	@GetMapping("/deleteinvoicedetails")
 	public String deleteInvoiceDetails(@RequestParam("id")String id) {
 		invoiceDetailService.deleteById(id);
-		return "redirect:/invoicedetails/getallinvoicedetails";
+		return LISTINVOICEDETAILS;
 	}
 	
 	@GetMapping("/getallinvoicedetails")

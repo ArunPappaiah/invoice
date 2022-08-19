@@ -8,15 +8,16 @@
 <style><%@include file="/WEB-INF/css/findupdatecustomer.css"%></style>
 </head>
 <body>
-	<div class="center">
-	 <form action="updateform" >
+	<div id="registration-form" class="center">
+	 <form action="updateform" class='fieldset'>
 	 	<h1>Find Customer Form</h1>
                 <div>
                   Customer Id : <input type="text" id = "id" name="id" placeholder="Enter customer id"/>
                 </div>
                 <br>
                 <input type="submit" value="Find" />
-            </form>  
+            </form><br>  
+			<button type="button" name="back" onclick="history.back()">back</button>
 	</div> 
 </body>
 </html>

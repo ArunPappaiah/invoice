@@ -11,6 +11,8 @@
 </head>
 <body>
 	<div id="root">
+	<div id="registration-form">
+	<div class='fieldset'>
 		<div id="getproductinvoiceform">
 			<form:form action="" method="post"
 				modelAttribute="getproduct">
@@ -53,8 +55,10 @@
 				</div>
 		</form:form>
 	</div>
+	</div>
+	</div><br>
 	<div id="getinvoice" class="center">
-	<table border=1>
+	<table border=1 class="styled-table">
 	<caption>Product Invoices List</caption>
 		<thead>
 		<tr>
@@ -68,7 +72,7 @@
 	</thead>
 		<tbody>
 			<c:forEach var="invoice" items="${getinvoice}">
-			<tr>
+			<tr class="active-row">
 			<td>${invoice.invoiceNumber}</td>
 			<td>${invoice.invoiceDate}</td>
 			<td>${invoice.customerId}</td>
@@ -78,7 +82,8 @@
 			</tr>
 			</c:forEach>
 		</tbody>
-		</table>
+		</table><br>
+		<button type="button" name="back" onclick="history.back()">back</button>
 		</div>
 	</div>
 </body>

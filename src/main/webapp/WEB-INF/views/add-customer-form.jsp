@@ -72,6 +72,7 @@ pattern="^[a-zA-Z]+$" required="true"/>
 		</div>
 		</form:form>
 	</div>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

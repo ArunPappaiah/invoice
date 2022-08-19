@@ -96,7 +96,8 @@
 				</div>
 		</form:form>
 		 <br><br><button onclick="window.print()">Print page</button>
-	</div>
+	</div><br>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

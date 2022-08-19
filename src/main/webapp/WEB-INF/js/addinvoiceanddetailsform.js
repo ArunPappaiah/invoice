@@ -23,36 +23,7 @@ function updatePrice() {
 	
 	document.getElementById("productId1").value = productId;
 	document.getElementById("invoiceNumber1").value = ivNo;
-	
-	//----------------
-	// let productId = document.getElementById("productId").value;
-	let price;
-	if(productId==50){
-		price=3000;
-	}else if(productId==51){
-		price=20000;
-	}else if(productId==52){
-		price=500;
-	}else if(productId==53){
-		price=1000;
-	}else{
-		price=2000;
-	}
-	document.getElementById('price').value=price;
-	
-	//--------------------
-	 if(productId==50){
-		gstPrice=28;
-	}else if(productId==51){
-		gstPrice=28;
-	}else if(productId==52){
-		gstPrice=12;
-	}else if(productId==53){
-		gstPrice=5;
-	}else{
-		gstPrice=18;
-	}
-	document.getElementById("gst").value = gstPrice;
+	document.getElementById("invoiceDate").valueAsDate = new Date();
 } 
 
 const customerIdCheck = function() {

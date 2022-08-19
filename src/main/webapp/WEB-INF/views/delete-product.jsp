@@ -18,5 +18,6 @@
                 <br>
                 <input type="submit" value="Delete" />
             </form>
+		<button type="button" name="back" onclick="history.back()">back</button>
 </body>
 </html>

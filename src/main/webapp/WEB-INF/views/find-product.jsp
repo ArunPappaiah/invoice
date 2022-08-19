@@ -10,14 +10,15 @@
 <style><%@include file="/WEB-INF/css/findproduct.css"%></style>
 </head>
 <body>
-	<div class="center">
-	 <form action="getproductbyid" >
+	<div id="registration-form" class="center">
+	 <form action="getproductbyid" class='fieldset'>
                 <div>
                   Product Id : <input type="text" id = "productId" name="productId" placeholder="Enter product id"/>
                 </div>
                 <br>
                 <input type="submit" value="Find" />
-            </form>  
+            </form><br> 
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>  
 </body>
 </html>

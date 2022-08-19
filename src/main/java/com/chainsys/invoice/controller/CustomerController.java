@@ -24,6 +24,8 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 	
+	public static final String LISTCUSTOMER = "redirect:/customer/getallcustomers";
+	
 	@GetMapping("/findcustomerform")
 	public String findCustomerForm() {
 		return "find-customer-form";
@@ -53,7 +55,7 @@ public class CustomerController {
 			return "add-customer-form";
 		}
 		customerService.save(addCustomers);
-		return "redirect:/customer/getallcustomers";
+		return LISTCUSTOMER;
 	}
 	
 	@GetMapping("/updatemainform")
@@ -74,7 +76,7 @@ public class CustomerController {
 			return "update-customer-form";
 		}
 		customerService.save(updateCustomers);
-		return "redirect:/customer/getallcustomers";
+		return LISTCUSTOMER;
 	}
 	
 	@GetMapping("/deleteform")
@@ -85,7 +87,7 @@ public class CustomerController {
 	@GetMapping("/deletecustomer")
 	public String deleteCustomer(@RequestParam("id")int id) {
 		customerService.deleteById(id);
-		return "redirect:/customer/getallcustomers";
+		return LISTCUSTOMER;
 	}
 	
 	@GetMapping("/getallcustomers")

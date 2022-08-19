@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="table root" class="center">
-	<table border=1>
+	<table border=1 class="styled-table">
 	<caption>Invoice Details Lists</caption>
 	<thead>
 		<tr>
@@ -24,7 +24,7 @@
 	</thead>
 	<tbody>
 		<c:forEach var="invoice" items="${allinvoicedetails}">
-			<tr>
+			<tr class="active-row">
 			<td>${invoice.invoiceNumber}</td>
 			<td>${invoice.productId}</td>
 			<td>${invoice.quantity}</td>
@@ -35,6 +35,7 @@
 		</c:forEach>
 	</tbody>
 	</table>
-	</div>
+	</div><br>
+	<button type="button" name="back" onclick="history.back()">back</button>
 </body>
 </html>

@@ -10,7 +10,7 @@
 </head>
 <body class="center">
 	<div id="table root">
-	<table border=1>
+	<table border=1 class="styled-table">
 	<caption>List of Customers</caption>
 	<thead>
 		<tr>
@@ -24,7 +24,7 @@
 	</thead>
 	<tbody>
 		<c:forEach var="customer" items="${allcustomers}">
-			<tr>
+			<tr class="active-row">
 			<td>${customer.customerId}</td>
 			<td>${customer.customerName}</td>
 			<td>${customer.phoneNumber}</td>
@@ -36,5 +36,6 @@
 	</tbody>
 	</table>
 	</div>
+	<button type="button" name="back" onclick="history.back()">back</button>
 </body>
 </html>

@@ -65,6 +65,7 @@ pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
 		</div>
 		</form:form>
 	</div>
+	<button type="button" name="back" onclick="history.back()">back</button> 
 	</div>
 </body>
 </html>

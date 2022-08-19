@@ -98,7 +98,7 @@ pattern="^\d+(,\d{1,2})?$" required="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="gstRate">GST Rate</label>
+					<label for="gstRate">GST Rate%</label>
 					<div>
 						<form:input path="gstRate"  type="text" readonly="readonly" id="out2x" name="" placeholder="GST%" required="true"/>
 					</div>
@@ -116,6 +116,7 @@ pattern="^\d+(,\d{1,2})?$" required="true"/>
 		</div>
 		</form:form>
 	</div>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

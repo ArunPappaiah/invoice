@@ -10,8 +10,8 @@
 <style><%@include file="/WEB-INF/css/findinvoicedetailsbyid.css"%></style>
 </head>
 <body>
-	<div id="root" class="center">
-		<div id="form">
+	<div id="registration-form" class="center">
+		<div id="form" class='fieldset'>
 			<form:form action="getinvoicedetailsbyid" method="post"
 				modelAttribute="getinvoicedetails">
 				<h1>Invoice Details</h1>
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="gst">GST</label>
+					<label for="gst">GST%</label>
 					<div>
 						<form:input path="gst" />
 					</div>
@@ -53,6 +53,7 @@
 				</div>
 		</form:form>
 	</div>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

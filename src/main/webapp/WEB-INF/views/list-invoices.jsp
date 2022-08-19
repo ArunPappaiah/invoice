@@ -8,9 +8,9 @@
 <title>Invoices List</title>
 <style><%@include file="/WEB-INF/css/listinvoices.css"%></style>
 </head>
-<body class="center">
-	<div id="table root">
-	<table border=1>
+<body>
+	<div id="table root" class="center">
+	<table border=1 class="styled-table">
 	<caption>Invoices List</caption>
 	<thead>
 		<tr>
@@ -24,7 +24,7 @@
 	</thead>
 	<tbody>
 		<c:forEach var="invoice" items="${allinvoices}">
-			<tr>
+			<tr class="active-row">
 			<td>${invoice.invoiceNumber}</td>
 			<td>${invoice.invoiceDate}</td>
 			<td>${invoice.customerId}</td>
@@ -35,7 +35,8 @@
 		</c:forEach>
 	</tbody>
 	</table>
-	 <br><br><button onclick="window.print()">Print page</button>
+	 <br><br><button onclick="window.print()">Print page</button><br><br>
+	 <button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

@@ -10,13 +10,16 @@
 <style> <%@include file="/WEB-INF/css/findcustomerform.css"%> </style>
 </head>
 <body>
-   <form action="getcustomerbyid" >
+<div id="registration-form" class="center">
+   <form action="getcustomerbyid" class='fieldset'>
    <h1>Find Customer Form</h1>
 	<div>
 		Customer Id: <input type="text" id="customerId" name="id" placeholder="Enter customer id"/>
 	</div>
 	<br>
 	<input type="submit" value="Find" />
-	</form> 
+	</form><br>
+	<button type="button" name="back" onclick="history.back()">back</button> 
+	</div>
 </body>
 </html>

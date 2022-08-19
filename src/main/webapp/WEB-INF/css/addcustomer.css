@@ -6,7 +6,16 @@
 .center {
   text-align: center;
 }
-
+body {
+	background-image:
+		url("https://static.vecteezy.com/system/resources/previews/002/223/407/original/invoice-illustration-concept-design-vector.jpg");
+	 height: 768px;
+	width: 1366px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
 /* BTW alt-shift will pop a color picker 
   example color: followed  by alt shift will pop it
 */
@@ -14,9 +23,9 @@
 Hide the label if placeholder is supported
 */
 
-body{
+/* body{
   background:#b4b4b4;
-}
+} */
 
 #registration-form {
   font-family:'Open Sans Condensed', sans-serif;
@@ -27,7 +36,7 @@ body{
 }
 
 #registration-form .fieldset {
-	background-color:#d5d5d5;
+	background-color:#24B4EE  ;
 
 	border-radius: 3px;
   

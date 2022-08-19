@@ -8,8 +8,8 @@
 <style><%@include file="/WEB-INF/css/findupdateproduct.css"%></style>
 </head>
 <body>
-	<div class="center">
-	 <form action="updateform" >
+	<div id="registration-form" class="center">
+	 <form action="updateform" class='fieldset'>
 	 <h1>Find Product</h1>
                 <div>
                   Product Id : <input type="text" id = "productId" name="productId" placeholder="Enter product id"/>
@@ -17,6 +17,7 @@
                 <br>
                 <input type="submit" value="Find" />
             </form>  
-	</div> 
+		<button type="button" name="back" onclick="history.back()">back</button>
+	</div>
 </body>
 </html>

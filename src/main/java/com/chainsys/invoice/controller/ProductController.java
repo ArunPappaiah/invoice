@@ -25,6 +25,8 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	
+	public static final String LISTPRODUCT = "redirect:/product/getallproducts";
+	
 	@GetMapping("/addform")
 	public String showAddForm(Model model) {
 		Product pr = new Product();
@@ -38,7 +40,7 @@ public class ProductController {
 			return "add-product-form";
 		}
 		productService.save(addProduct);
-		return "redirect:/product/getallproducts";
+		return LISTPRODUCT;
 	}
 	
 	@GetMapping("/updatemainform")

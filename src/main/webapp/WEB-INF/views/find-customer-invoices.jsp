@@ -8,15 +8,16 @@
 <style> <%@include file="/WEB-INF/css/findcustomerinvoices.css"%> </style>
 </head>
 <body>
-	<div class="center" >
-	 <form action="getcustomerinvoices" >
+	<div id="registration-form" class="center" >
+	 <form action="getcustomerinvoices" class='fieldset'>
 	 <h1>Find Customer Invoices</h1>
                 <div>
                   Customer Id : <input type="text" id = "id" name="id" placeholder="Enter customer id"/>
                 </div>
                 <br>
                 <input type="submit" value="Find" />
-            </form> 
+            </form><br> 
+		<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

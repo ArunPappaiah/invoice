@@ -11,6 +11,8 @@
 </head>
 <body>
 	<div id="root">
+	<div id="registration-form">
+	<div class='fieldset'>
 		<div id="customerform">
 			<form:form action="" method="post"
 				modelAttribute="getcustomerinvoices">
@@ -53,8 +55,10 @@
 				</div>
 		</form:form>
 	</div>
+	</div>
+	</div><br>
 	<div id="invoicelist">
-	<table border=1 class="center">
+	<table border=1 class="styled-table">
 		 <caption>Customer Invoices List</caption>
 		<thead>
 		<tr>
@@ -76,7 +80,8 @@
 			</tr>
 			</c:forEach>
 		</tbody>
-		</table>
+		</table><br>
+		<button type="button" name="back" onclick="history.back()">back</button>
 		</div>
 	</div>
 </body>

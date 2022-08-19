@@ -8,15 +8,16 @@
 <style><%@include file="/WEB-INF/css/findproductandinvoice.css"%></style>
 </head>
 <body>
-	<div class="center">
-	 <form action="getproductandinvoice" >
+	<div id="registration-form" class="center">
+	 <form action="getproductandinvoice" class='fieldset'>
 	 <h1>Find Product</h1>
                 <div>
                   Product Id : <input type="text" id = "id" name="id" placeholder="Enter product id"/>
                 </div>
                 <br>
                 <input type="submit" value="Find" />
-            </form> 
+            </form> <br>
+		<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

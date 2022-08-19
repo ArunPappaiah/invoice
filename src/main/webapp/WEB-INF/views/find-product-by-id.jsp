@@ -10,8 +10,8 @@
 <style><%@include file="/WEB-INF/css/findproductbyid.css"%></style>
 </head>
 <body>
-	<div id="root" class="center">
-		<div id="form">
+	<div id="registration-form" class="center">
+		<div id="form" class='fieldset'>
 			<form:form action="getproductbyid" method="get"
 				modelAttribute="getproduct">
 				<h1>Product Detail</h1>
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="gstRate">GST Rate</label>
+					<label for="gstRate">GST Rate%</label>
 					<div>
 						<form:input path="gstRate"  type="text" readonly="readonly"/>
 					</div>
@@ -52,7 +52,8 @@
 					</div>
 				</div>
 		</form:form>
-	</div>
+	</div><br>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

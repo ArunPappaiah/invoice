@@ -32,6 +32,9 @@ public class InvoiceController {
 	
 	@Autowired
 	ProductService productRepo;
+	
+	public static final String LISTINVOICE = "redirect:/invoice/getallinvoices";
+	
 	@GetMapping("/findinvoiceform")
 	public String findInvoiceForm() {
 		return "find-invoice-form";
@@ -66,7 +69,7 @@ public class InvoiceController {
 			return "update-invoice-form";
 		}
 		invoiceService.save(updateInvoices);
-		return "redirect:/invoice/getallinvoices";
+		return LISTINVOICE;
 	}
 	
 	@GetMapping("/deleteform")
@@ -105,34 +108,38 @@ public class InvoiceController {
 	}
 	
 	@GetMapping("/form")
-	public String findInvoiceForm(Model model) {
+	public String findInvoiceForm(@RequestParam("productId") int id, Model model) {
+		Product product = productRepo.findById(id);
 		InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
+		dto.setProductId(id);
+		dto.setPrice(product.getPrice());
+		dto.setGst((int) product.getGstRate());
 		model.addAttribute("addinvoiceanddetails",dto);
 		return "add-invoice-and-details-form";
 	}
 	
-    @GetMapping("/transtest")
-   	public String addInvoiceAndDetails(@ModelAttribute("addinvoiceanddetails")Invoice invoice,InvoiceDetails invoiceDetails){
-    	InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
-		dto.setInvoiceNumber(invoice.getInvoiceNumber());
-		dto.setInvoiceDate(invoice.getInvoiceDate());
-		dto.setCustomerId(invoice.getCustomerId());
-		dto.setProductId1(invoice.getProductId());
-		dto.setTransportationCharges(invoice.getTransportationCharges());
-		dto.setTotalAmount(invoice.getTotalAmount());
-		dto.setInvoice(invoice);
-		
-		dto.setInvoiceNumber1(invoiceDetails.getInvoiceNumber());
-		dto.setProductId(invoiceDetails.getProductId());
-		dto.setQuantity(invoiceDetails.getQuantity());
-		dto.setPrice(invoiceDetails.getPrice());
-		dto.setGst(invoiceDetails.getGst());
-		dto.setAmount(invoiceDetails.getAmount());
-		dto.addInvoiceDetails(invoiceDetails);
-		
-		 invoiceService.addInvoiceAndInvoiceDetails(dto);
-		return "redirect:/invoice/getallinvoices";
-	}
+	 @GetMapping("/transtest")
+	   	public String addInvoiceAndDetails(@ModelAttribute("addinvoiceanddetails")Invoice invoice,InvoiceDetails invoiceDetails){
+	    	InvoiceDetailsDTO dto = new InvoiceDetailsDTO();
+			dto.setInvoiceNumber(invoice.getInvoiceNumber());
+			dto.setInvoiceDate(invoice.getInvoiceDate());
+			dto.setCustomerId(invoice.getCustomerId());
+			dto.setProductId1(invoice.getProductId());
+			dto.setTransportationCharges(invoice.getTransportationCharges());
+			dto.setTotalAmount(invoice.getTotalAmount());
+			dto.setInvoice(invoice);
+			
+			dto.setInvoiceNumber1(invoiceDetails.getInvoiceNumber());
+			dto.setProductId(invoiceDetails.getProductId());
+			dto.setQuantity(invoiceDetails.getQuantity());
+			dto.setPrice(invoiceDetails.getPrice());
+			dto.setGst(invoiceDetails.getGst());
+			dto.setAmount(invoiceDetails.getAmount());
+			dto.addInvoiceDetails(invoiceDetails);
+			
+			 invoiceService.addInvoiceAndInvoiceDetails(dto);
+			return "redirect:/invoice/getallinvoices";
+		}
    
     @GetMapping("/updateinvoiceanddetailsmainform")
 	public String findUpdateInvoiceAndDetailsForm() {

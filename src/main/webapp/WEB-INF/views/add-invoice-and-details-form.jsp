@@ -37,78 +37,70 @@
 <script> <%@include file="/WEB-INF/js/addinvoiceanddetailsform.js"%></script>
 </head>
 <body>
-	<div id="root" class="container" >
-		<div id="form">
-			<form:form action="transtest" method="get" modelAttribute="addinvoiceanddetails" name="myForm">
+	<div id="root" class="center">
+		<div id="form" class='fieldset'>
+			<form:form action="transtest" method="get" modelAttribute="addinvoiceanddetails" name="myForm" >
 			<h1>Invoice Form</h1>
 				  <div>
 					<label for="invoiceNumber">Invoice Number</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="invoiceNumber" id="invoiceNumber" required="true" value="<%=sl3%>" onchange="updatePrice()"/>
 					</div>
 				</div> 
 				<form:errors path="invoiceNumber" cssClass="text-danger" /> 
 				<div>
 					<label for="invoiceDate">Invoice Date</label>
-					<div>
-						<form:input path="invoiceDate" type="date" id="invoiceDate" required="true"/>
+					<div class="inputbox">
+						<form:input path="invoiceDate" type="date" id="invoiceDate" required="true" onchange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<div>
 					<label for="customerId">Customer Id</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="customerId" id="customerId" name="customerId" onblur="customerIdCheck();" placeholder="Enter Id" required="true"/>
 					</div>
 				</div>
 				<form:errors path="customerId" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="productId" id="productId" name="productId" required="true" placeholder="Enter Id" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="transportationCharges">Transportation Charge</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="transportationCharges" id="transportationCharges" name="transportationCharges" onblur="transChargeCheck();" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="transportationCharges" cssClass="text-danger" />
-				<div>
-					<label for="totalAmount">Total Amount</label>
-					<div>
-						<form:input path="totalAmount" id="totalAmount"  name="totalAmount" title="Value can't be empty or must contain numeric values "
-pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
-					</div>
-				</div>
-				<form:errors path="totalAmount" cssClass="text-danger" />
 				
 				<div>
 					<label for="invoiceNumber1">Invoice Number</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="invoiceNumber1" name="invoiceNumber" id="invoiceNumber1" required="true" onchange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="invoiceNumber1" cssClass="text-danger" />
 				<div>
 					<label for="productId">Product Id</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="productId" id="productId1" name="productId" required="true" onchange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="productId" cssClass="text-danger" />
 				<div>
 					<label for="quantity">Quantity</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="quantity" id="quantity" name="quantity" placeholder="Enter quantity" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 					<form:errors path="quantity" cssClass="text-danger" />
 				<div>
 					<label for="price">Price</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="price" id="price" name="price" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice(this.form)"/><!-- "calculateAmount(this.value)" -->
 					</div>
@@ -116,25 +108,36 @@ pattern="^\d+(,\d{1,2})?$" required="true" onchange="updatePrice(this.form)"/><!
 				<form:errors path="price" cssClass="text-danger" />
 				<div>
 					<label for="gst">GST%</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="gst" type="text" id="gst" name="gst" required="true" onchange="updatePrice()"/>
 					</div>
 				</div>
 				<form:errors path="gst" cssClass="text-danger" />
 				<div>
 					<label for="amount">Amount</label>
-					<div>
+					<div class="inputbox">
 						<form:input path="amount" type="text" id="amount"  name="amount" title="Value can't be empty or must contain numeric values "
 pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
 					</div>
 				</div>
 				<form:errors path="amount" cssClass="text-danger" />
+				
+				<div>
+					<label for="totalAmount">Total Amount</label>
+					<div class="inputbox">
+						<form:input path="totalAmount" id="totalAmount"  name="totalAmount" title="Value can't be empty or must contain numeric values "
+pattern="^\d+(,\d{1,2})?$" required="true" onChange="updatePrice(this.form)"/>
+					</div>
+				</div>
+				<form:errors path="totalAmount" cssClass="text-danger" />
+				
 		<div>
 			<form:button>Add Invoice</form:button>
 		</div>
 		</form:form>
          <br><br><button onclick="window.print()">Print page</button>
-	</div>
+	</div><br>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>

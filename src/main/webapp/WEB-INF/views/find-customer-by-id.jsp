@@ -10,8 +10,8 @@
 <style> <%@include file="/WEB-INF/css/findcustomerbyid.css"%> </style>
 </head>
 <body>
-	<div id="root" class="center" >
-		<div id="form">
+	<div id="registration-form" class="center" >
+		<div id="form" class='fieldset'>
 			<form:form action="getcustomerbyid" method="get"
 				modelAttribute="getcustomer">
 				<h1>Customer Details</h1>
@@ -53,6 +53,7 @@
 				</div>
 		</form:form>
 	</div>
+	<button type="button" name="back" onclick="history.back()">back</button>
 	</div>
 </body>
 </html>
