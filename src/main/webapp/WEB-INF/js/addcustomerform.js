@@ -16,7 +16,7 @@ const customerIdCheck = function() {
     } 
 }
  const userNameCheck = function() {
-	 const nameRegex = new RegExp('^[a-zA-Z]+$');
+	 const nameRegex = `^[a-zA-Z]+$`;
 	 if(!document.myForm.customerName.value.match(nameRegex)){
 			if(alert("Name can't be empty or must contain only alphabets")){ 
 				 document.myForm.customerName.focus();
@@ -31,7 +31,7 @@ const customerIdCheck = function() {
 }
 
  const phoneNumberCheck = function() {
-	 const phoneRg = new RegExp('[1-9]{1}[0-9]{9}');
+	 const phoneRg = `[1-9]{1}[0-9]{9}`;
 	 if(!document.myForm.phoneNumber.value.match(phoneRg)){
 			if(alert("Phone Number not valid")){
 				 document.myForm.phoneNumber.focus();
@@ -58,7 +58,7 @@ const customerIdCheck = function() {
  }
 
 const emailNameCheck = function() {
-	const rg = new RegExp('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$');
+	const rg = `[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$`;
 	if(!document.myForm.email.value.match(rg)){
 		if(alert("Email not valid")){
 			document.myForm.email.focus();
@@ -72,7 +72,7 @@ const emailNameCheck = function() {
 }
 
 const cityNameCheck = function() {
-	const cityRegex = new RegExp('^[a-zA-Z]+$');
+	const cityRegex = `^[a-zA-Z]+$`;
 	if(!document.myForm.city.value.match(cityRegex)){
 		if(alert("City name can't be empty or must contain only alphabets")){
 			 document.myForm.city.focus();
