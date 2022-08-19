@@ -80,7 +80,7 @@ public class InvoiceController {
 	@GetMapping("/deleteinvoice")
 	public String deleteInvoice(@RequestParam("id")String id) {
 		invoiceService.deleteById(id);
-		return "redirect:/invoice/getallinvoices";
+		return LISTINVOICE;
 	}
 	
 	@GetMapping("/getallinvoices")
@@ -104,7 +104,7 @@ public class InvoiceController {
 			return "add-invoice-form";
 		}
 		invoiceService.save(addInvoice);
-		return "redirect:/invoice/getallinvoices";
+		return LISTINVOICE;
 	}
 	
 	@GetMapping("/form")
@@ -138,7 +138,7 @@ public class InvoiceController {
 			dto.addInvoiceDetails(invoiceDetails);
 			
 			 invoiceService.addInvoiceAndInvoiceDetails(dto);
-			return "redirect:/invoice/getallinvoices";
+			return LISTINVOICE;
 		}
    
     @GetMapping("/updateinvoiceanddetailsmainform")

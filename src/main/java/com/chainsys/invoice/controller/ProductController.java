@@ -61,7 +61,7 @@ public class ProductController {
 			return "update-product-form";
 		}
 		productService.save(updateProduct);
-		return "redirect:/product/getallproducts";
+		return LISTPRODUCT;
 	}
 	
 	@GetMapping("/deleteform")
@@ -72,7 +72,7 @@ public class ProductController {
 	@GetMapping("/deleteproduct")
 	public String deleteProduct(@RequestParam("product_id") int id) {
 		productService.deleteById(id);
-		return "redirect:/product/getallproducts";
+		return LISTPRODUCT;
 	}
 	
 	@GetMapping("/findproductform")

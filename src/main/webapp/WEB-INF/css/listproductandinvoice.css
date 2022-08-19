@@ -23,9 +23,9 @@ caption {
   text-align: center;
 } */
 
-body{
+/* body{
  	background-color : #E5E7E9;
- }
+ } */
 caption {
 	font-size: 30px;
 	font-weight: bold;
@@ -72,7 +72,7 @@ button {
   margin:auto;
   display:block;
 }
-/*  */
+
  body {
 	background-image:
 		url("https://static.vecteezy.com/system/resources/previews/002/223/407/original/invoice-illustration-concept-design-vector.jpg");

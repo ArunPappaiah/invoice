@@ -10,10 +10,8 @@ function updatePrice() {
 	let ivNo = document.getElementById("invoiceNumber").value;
 	
 	let transCharge = document.getElementById("transportationCharges").value;
-	// let totalAmount = document.getElementById("totalAmount").value;
 	
 	let amt = exPrice*qty;
-	// var TPrice = parseInt(gstPrice) + parseInt(qty)*parseInt(exPrice);
 	let TPrice = (amt*gstPrice/100)+amt;
 	let total = parseInt(TPrice)+parseInt(transCharge);
 	
