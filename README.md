@@ -70,29 +70,15 @@ Invoice payment terms are included on all bills small businesses send to clients
 
 # Frontend 
 
-1. Angular-cli - 11.0.0
-2. Bootstrap - 5.1.3
-3. ng guard 
-4. ngx-toastr -13.2.1
-5. Angular material
-6. ng2-search-filter -0.5.1
+1. HTML5
+2. CSS
+3. JavaScript
 
-# Backend
+# Back-end
 
-1. NodeJs : 14.14.0
-
-# NPM
-
-command to install: npm install npm-package_name
-
-1. "body-parser": "^1.20.0",
-2. "cors": "^2.8.5",
-3. "nodemailer":"^6.7.5",
-4. "express": "^4.18.1",
-5. "joi": "^17.6.0",
-6. "nano": "^10.0.0",
-7. "winston": "^3.7.2"
+1. Java    
+2. Spring MVC (FrameWork)
 
 # Database
 
-1. Cloudant
+1.Oracle SQL
